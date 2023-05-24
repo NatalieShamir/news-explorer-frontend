@@ -2,7 +2,7 @@ import headerLogo from "../../images/header.svg";
 import React from "react";
 import { Link } from 'react-router-dom';
 
-export default function Header({ isLoggedIn, onSignIn }) {
+export default function Header({ isLoggedIn, onSignIn, onSignOut }) {
 
     return (
         <header className="header">
@@ -19,7 +19,7 @@ export default function Header({ isLoggedIn, onSignIn }) {
                             Home
                         </Link>
                         <Link to={"/"} className="header__articles">Saved articles</Link>
-                        <Link to={"/"} className="header__signout">{ }</Link>
+                        <button className="header__button-signout" onClick={onSignOut}>{user.name}</button>
                     </div>
 
                 ) : (
@@ -27,7 +27,7 @@ export default function Header({ isLoggedIn, onSignIn }) {
                         <Link to={"/"} className="header__home">
                             Home
                         </Link>
-                        <p className="header__text" onClick={onSignIn}>Sign in</p>
+                        <button className="header__button-signin" onClick={onSignIn}>Sign in</button>
                     </div>
                 )}
             </div>
