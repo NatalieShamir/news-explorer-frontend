@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import GitHubLogo from "../../images/github.svg";
-import FacebookLogo from "../../images/facebook.svg";
+import GitHubLogo from "../../images/github-min.svg";
+import FacebookLogo from "../../images/facebook-min.svg";
 
 export default function Footer() {
     const handlePracticumClick = () => {
