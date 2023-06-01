@@ -14,10 +14,10 @@ function Signin({ onSignin }) {
         <div className="signin">
             <form onSubmit={handleSignin} className="signin__form" >
                 <h3 className="signin__welcome">Sign in</h3>
-                <label htmlFor="email"></label>
+                <label htmlFor="email" className="signin__label">Email</label>
                 <input type="email" id="email-input" className="signin__input" placeholder="Enter email"
                     value={email} onChange={e => setEmail(e.target.value)} />
-                <label htmlFor="password"></label>
+                <label htmlFor="password" className="signin__label">Password</label>
                 <input type="password" id="password-input" className="signin__input" placeholder="Enter password" value={password} onChange={e => setPassword(e.target.value)} />
                 <div className="signin__button-container">
                     <button type="submit" className="signin__link">
