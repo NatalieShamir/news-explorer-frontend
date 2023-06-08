@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import GitHubLogo from "../../images/github-min.svg";
 import FacebookLogo from "../../images/facebook-min.svg";
+import "../Footer/Footer.css"
 
 export default function Footer() {
     const handlePracticumClick = () => {
@@ -16,13 +17,15 @@ export default function Footer() {
     return (
         <footer className="footer">
             <p className="footer__copyright">
-                &#169; {new Date().getFullYear()}Supersite, Powered by News API</p>
-            <Link to={"/"} className="footer__home">
-                Home
-            </Link>
-            <button onClick={handlePracticumClick}>Practicum</button>
-            <button onClick={handleGitHubClick}><img src={GitHubLogo} /></button>
-            <button onClick={handleFacebookClick}><img src={FacebookLogo} /></button>
+                &#169; {new Date().getFullYear()} Supersite, Powered by News API</p>
+            <div className="footer__container">
+                <Link to={"/"} className="footer__home">
+                    Home
+                </Link>
+                <button className="footer__button-practicum" onClick={handlePracticumClick}>Practicum</button>
+                <button className="footer__button-github" onClick={handleGitHubClick}><img src={GitHubLogo} alt="GitHub logo" /></button>
+                <button className="footer__button-facebook" onClick={handleFacebookClick}><img src={FacebookLogo} alt="Facebook logo" /></button>
+            </div>
         </footer>
     );
 }
