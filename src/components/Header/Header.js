@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import "../Header/Header.css"
 
-function Header({ onSignIn }) {
+function Header({ onSignInClick }) {
 
     return (
         <header className="header">
@@ -18,7 +18,7 @@ function Header({ onSignIn }) {
                     <Link to={"/"} className="header__home">
                         Home
                     </Link>
-                    <button className="header__button-signin" onClick={onSignIn}>Sign in</button>
+                    <button className="header__button-signin" onClick={onSignInClick}>Sign in</button>
                 </div>
             </div >
         </header >
