@@ -11,7 +11,11 @@
 .header__image {
   max-width: 200px;
   height: 24px;
-  margin-left: 104px;
+  margin-left: 5%;
+}
+
+.header__container {
+  margin-right: 5%;
 }
 
 .header__home {
@@ -26,7 +30,6 @@
 }
 
 .header__button-signin {
-  margin-right: 104px;
   width: 175px;
   padding: 12px;
   background-color: transparent;
@@ -39,4 +42,33 @@
   line-height: 24px;
   color: #ffffff;
   cursor: pointer;
+}
+
+@media screen and (max-width: 960px) {
+  .header {
+    height: 66px;
+  }
+
+  .header__container {
+    width: 30%;
+  }
+
+  .header__container-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header__home {
+    font-size: 16px;
+  }
+
+  .header__button-signin {
+    width: 69%;
+    padding: 8px 12px;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 100px;
+    font-size: 16px;
+  }
 }
