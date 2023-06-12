@@ -13,3 +13,9 @@
     min-height: 400px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .parent {
+    min-height: 536px;
+  }
+}
