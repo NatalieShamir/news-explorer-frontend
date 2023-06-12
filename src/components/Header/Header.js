@@ -19,6 +19,7 @@ function Header({ onSignInClick }) {
                         Home
                     </Link>
                     <button className="header__button-signin" onClick={onSignInClick}>Sign in</button>
+                    <button className="header__button-menu"></button>
                 </div>
             </div >
         </header >
