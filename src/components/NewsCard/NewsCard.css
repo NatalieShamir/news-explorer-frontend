@@ -1,5 +1,5 @@
 .card {
-  min-width: 400px;
+  max-width: 400px;
   max-height: 576px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -28,10 +28,10 @@
 
 .card__container {
   height: 304px;
-  margin-left: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  margin: 0 24px;
 }
 
 .card__date {
@@ -83,7 +83,7 @@
 
 @media screen and (max-width: 960px) {
   .card {
-    min-width: 224px;
+    max-width: 224px;
     max-height: 420px;
   }
 
@@ -99,12 +99,11 @@
 
   .card__container {
     height: 270px;
+    margin: 0 16px;
   }
 
   .card__date {
     max-width: 147px;
-    margin-top: 0;
-    margin-bottom: 0;
   }
 
   .card__title {
@@ -119,15 +118,52 @@
     margin-top: 0;
     margin-bottom: 0;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
   }
 
   .card__website {
     max-width: 192px;
     height: 20px;
     text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    max-width: 288px;
+    max-height: 440px;
+  }
+
+  .card__image {
+    max-width: 288px;
+    height: 196px;
+  }
+
+  .card__button {
+    top: 16px;
+    left: 232px;
+  }
+
+  .card__container {
+    height: 244px;
+  }
+
+  .card__date {
+    max-width: 256px;
+  }
+
+  .card__title {
+    max-width: 256px;
+  }
+
+  .card__text {
+    max-width: 256px;
+  }
+
+  .card__website {
+    max-width: 256px;
   }
 }
