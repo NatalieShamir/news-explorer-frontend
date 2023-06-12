@@ -19,8 +19,10 @@
   border: none;
   border-radius: 8px;
   position: absolute;
-  top: 24px;
-  left: 336px;
+  left: 84%;
+  right: 6%;
+  top: 4.17%;
+  bottom: 88.89%;
   width: 40px;
   height: 40px;
   cursor: pointer;
@@ -93,8 +95,10 @@
   }
 
   .card__button {
-    top: 8px;
-    left: 176px;
+    left: 78.57%;
+    right: 3.57%;
+    top: 5.33%;
+    bottom: 68%;
   }
 
   .card__container {
@@ -143,8 +147,10 @@
   }
 
   .card__button {
-    top: 16px;
-    left: 232px;
+    left: 80.56%;
+    right: 5.56%;
+    top: 8.16%;
+    bottom: 71.43%;
   }
 
   .card__container {
