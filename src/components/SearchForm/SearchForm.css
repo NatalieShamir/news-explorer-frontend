@@ -68,3 +68,31 @@
   font-size: 18px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 960px) {
+  .search__form-heading {
+    max-width: 385px;
+    margin: 38px 0 16px 0;
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .search__form-text {
+    max-width: 452px;
+    margin: 0 0 48px 0;
+  }
+
+  .search__form-field-container {
+    width: 448px;
+  }
+
+  .search__form-input {
+    height: 56px;
+    padding: 17px 196px 17px 24px;
+  }
+
+  .seacrh__form-button {
+    width: 160px;
+    padding: 16px 52px;
+  }
+}
