@@ -4,7 +4,8 @@
   width: 100%;
   min-height: 100vh;
   margin: auto;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #1a1b22;
   font-weight: 400;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
