@@ -80,3 +80,54 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+
+@media screen and (max-width: 960px) {
+  .card {
+    min-width: 224px;
+    max-height: 420px;
+  }
+
+  .card__image {
+    max-width: 224px;
+    height: 150px;
+  }
+
+  .card__button {
+    top: 8px;
+    left: 176px;
+  }
+
+  .card__container {
+    height: 270px;
+  }
+
+  .card__date {
+    max-width: 147px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .card__title {
+    max-width: 192px;
+    font-size: 22px;
+    line-height: 24px;
+  }
+
+  .card__text {
+    max-width: 192px;
+    height: 88px;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .card__website {
+    max-width: 192px;
+    height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
