@@ -96,3 +96,41 @@
     padding: 16px 52px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .search__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search__form-heading {
+    max-width: 285px;
+    margin: 30px auto 16px auto;
+  }
+
+  .search__form-text {
+    max-width: 288px;
+    margin: 0 auto 122px auto;
+  }
+
+  .search__form-field-container {
+    width: 288px;
+    height: 128px;
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+
+  .search__form-input {
+    width: 288px;
+    height: 56px;
+    padding: 17px 16px;
+  }
+
+  .seacrh__form-button {
+    position: static;
+    width: 288px;
+    padding: 16px 116px;
+  }
+}
