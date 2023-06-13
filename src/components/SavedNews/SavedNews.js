@@ -21,10 +21,9 @@ function SavedNews({ code }) {
         <div className="saved-news">
             <h2 className="saved-news__heading">Saved articles</h2>
             <h3 className="saved-news__subheading">Elise, you have 5 saved articles</h3>
-            <div className="saved-news__keywords-container">
-                <p className="saved-news__keywords">By keywords:</p>
-                <p className="saved-news__keywords-items">Nature, Yellowstone, and 2 other</p>
-            </div>
+            <p className="saved-news__keywords">By keywords:
+                <span className="saved-news__keywords-bold" style={{ fontWeight: 'bold' }}>Nature, Yellowstone, and 2 other</span>
+            </p>
             <ul className="saved-news__card-list">
                 {React.Children.toArray(cardComponents)}
             </ul><div>{code}</div>
