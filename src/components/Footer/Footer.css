@@ -54,3 +54,23 @@
   margin-right: 106px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 960px) {
+  .footer {
+    justify-content: space-around;
+    height: 64px;
+  }
+
+  .footer__copyright {
+    margin: 0;
+  }
+
+  .footer__container {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer__button-facebook {
+    margin-right: 0px;
+  }
+}
