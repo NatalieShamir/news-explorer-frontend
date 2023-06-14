@@ -33,6 +33,11 @@
     no-repeat;
 }
 
+.card__button_marked {
+  background: transparent url("../../images/card-button-marked.svg") center
+    no-repeat;
+}
+
 .card__container {
   height: 304px;
   display: flex;
