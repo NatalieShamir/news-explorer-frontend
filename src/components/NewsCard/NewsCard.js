@@ -4,8 +4,8 @@ import "../NewsCard/NewsCard.css"
 function NewsCard(props) {
     return (
         <div className="card">
-            <img src={props.cardImage} className="card__image" alt="news card" />
-            <button className="card__button"></button>
+            <img src={props.cardImage} className="card__image " alt="news card" />
+            <button className="card__button card__button_hover card__button_marked"></button>
             <div className="card__container">
                 <p className="card__date">{props.date}</p>
                 <h2 className="card__title">{props.title}</h2>
