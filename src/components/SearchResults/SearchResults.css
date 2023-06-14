@@ -28,7 +28,7 @@
 .search-results__button {
   margin: 56px 576px 80px 576px;
   width: 288px;
-  background-color: #e8e8e8;
+  background-color: #ffffff;
   border-radius: 80px;
   border: none;
   padding: 20px 98px;
@@ -40,6 +40,10 @@
   font-weight: 500;
   font-size: 18px;
   cursor: pointer;
+}
+
+.search-results__button:hover {
+  background-color: #e8e8e8;
 }
 
 @media screen and (max-width: 960px) {
