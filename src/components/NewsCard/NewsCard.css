@@ -28,6 +28,11 @@
   cursor: pointer;
 }
 
+.card__button:hover {
+  background: transparent url("../../images/card-button-hover.svg") center
+    no-repeat;
+}
+
 .card__container {
   height: 304px;
   display: flex;
