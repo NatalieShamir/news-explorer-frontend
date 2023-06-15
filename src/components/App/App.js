@@ -6,13 +6,7 @@ import {
 } from 'react-router-dom';
 import "../App/App.css";
 import Main from "../Main/Main";
-import SearchResults from "../SearchResults/SearchResults";
 import Footer from "../Footer/Footer";
-import Preloader from "../Preloader/Preloader";
-import NotFound from "../NotFound/NotFound";
-import Signin from "../SignInPopup/SignInPopup";
-import Signup from "../SignUpPopup/SignUpPopup";
-import RegistrationSuccessful from "../RegistrationSuccessful/RegistrationSuccessful";
 import SavedNews from "../SavedNews/SavedNews";
 
 function App() {
@@ -43,15 +37,9 @@ function App() {
     <div className="app">
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/signin" element={<Signin isOpen={isSignInPopupOpen} onClose={closeAllPopups} />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/saved-news" element={<SavedNews />} />
       </Routes>
-      <Preloader />
-      <NotFound />
-      <SearchResults />
-      <SavedNews />
       <Footer />
-      <RegistrationSuccessful />
     </div>
   );
 }
