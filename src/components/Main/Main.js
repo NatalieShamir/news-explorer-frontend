@@ -3,24 +3,45 @@ import Parent from "../Parent/Parent";
 import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
 import About from "../About/About";
+import Signin from "../SignInPopup/SignInPopup";
+import Signup from "../SignUpPopup/SignUpPopup";
+import RegistrationSuccessful from "../RegistrationSuccessful/RegistrationSuccessful";
+import {
+    Route, Routes
+} from 'react-router-dom';
 
 function Main() {
 
-    const [isSignInPopupOpen, setIsSignInPopupOpen] = React.useState(false);
+    const [isSignInPopupOpen, setIsSignInPopupOpen] =
+        React.useState(false);
+    const [isSignUpPopupOpen, setIsSignUpPopupOpen] =
+        React.useState(false);
+    const [isRegisterSuccessOpen, setIsRegisterSuccessOpen] =
+        React.useState(false);
 
     function handleSignInClick() {
         setIsSignInPopupOpen(true);
     }
 
+    function closeAllPopups() {
+        setIsSignInPopupOpen(false);
+        setIsSignUpPopupOpen(false);
+        setIsRegisterSuccessOpen(false);
+    }
+
     return (
         <>
             <Parent>
-                <Header
-                    onSignInClick={handleSignInClick}
+                <Header onSignInClick={handleSignInClick} onClose={closeAllPopups}
                 />
                 <SearchForm />
             </Parent>
             <About />
+            <Routes>
+                <Route path="/signin" element={<Signin isOpen={isSignInPopupOpen} onClose={closeAllPopups} />} />
+                <Route path="/signup" element={<Signup isOpen={isSignUpPopupOpen} onClose={closeAllPopups} />} />
+            </Routes>
+            <RegistrationSuccessful isOpen={isRegisterSuccessOpen} onClose={closeAllPopups} />
         </>
     )
 }
