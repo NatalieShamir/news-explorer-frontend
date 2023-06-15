@@ -19,12 +19,22 @@ export default function Footer() {
             <p className="footer__copyright">
                 &#169; {new Date().getFullYear()} Supersite, Powered by News API</p>
             <div className="footer__container">
-                <Link to={"/"} className="footer__home">
-                    Home
-                </Link>
-                <button className="footer__button-practicum" onClick={handlePracticumClick}>Practicum</button>
-                <button className="footer__button-github" onClick={handleGitHubClick}><img src={GitHubLogo} alt="GitHub logo" /></button>
-                <button className="footer__button-facebook" onClick={handleFacebookClick}><img src={FacebookLogo} alt="Facebook logo" /></button>
+                <div className="footer__container-word-items">
+                    <Link to={"/"} className="footer__home">
+                        Home
+                    </Link>
+                    <button className="footer__button-practicum" onClick={handlePracticumClick}>
+                        Practicum
+                    </button>
+                </div>
+                <div className="footer__container-icon-items">
+                    <button className="footer__button-github" onClick={handleGitHubClick}>
+                        <img src={GitHubLogo} alt="GitHub logo" />
+                    </button>
+                    <button className="footer__button-facebook" onClick={handleFacebookClick}>
+                        <img src={FacebookLogo} alt="Facebook logo" />
+                    </button>
+                </div>
             </div>
         </footer>
     );
