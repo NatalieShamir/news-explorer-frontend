@@ -1,23 +1,25 @@
 import headerLogo from "../../images/header-min.svg";
 import React from "react";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import "../Header/Header.css"
 
 function Header({ onSignInClick }) {
 
     return (
         <header className="header">
-            <img
-                className="header__image"
-                src={headerLogo}
-                alt="Project title- NewsExplorer"
-            />
+            <NavLink to={"/"} className="header__logo">
+                <img
+                    className="header__logo-image"
+                    src={headerLogo}
+                    alt="Project title- NewsExplorer"
+                />
+            </NavLink>
 
             <div className="header__container">
                 <div className="header__container-items">
-                    <Link to={"/"} className="header__home">
+                    <NavLink to={"/"} className="header__home">
                         Home
-                    </Link>
+                    </NavLink>
                     <button className="header__button-signin" onClick={onSignInClick}>Sign in</button>
                     <button className="header__button-menu"></button>
                 </div>
