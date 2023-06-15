@@ -4,7 +4,7 @@
 
 .saved-news__heading {
   max-width: 712px;
-  margin: 0 auto 28px 104px;
+  margin: 40px auto 28px 104px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -39,8 +39,8 @@
 
 .saved-news__card-list {
   width: 85.5%;
-  padding: 62px 106px 62px 102px;
-  margin: 0;
+  padding: 4.8% 7.5% 4.8% 7%;
+  margin: 0 auto;
   background: #f5f6f7;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
