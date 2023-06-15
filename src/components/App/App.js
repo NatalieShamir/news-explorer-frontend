@@ -1,33 +1,57 @@
-import '../App.css';
-import Main from "../Main";
-import SavedNews from "../SavedNews";
-import Header from "../Header";
-import Navigation from "../Navigation";
-import SearchForm from "../SearchForm";
-import NewsCardList from "../NewsCardList";
-import NewsCard from "../NewsCard";
-import About from "../About";
-import Preloader from "../Preloader";
-import Footer from "../Footer";
-import PopupWithForm from "../PopupWithForm";
-import SavedNewsHeader from "../SavedNewsHeader";
-
+import React from "react";
+import { useEffect } from "react";
+import {
+  Route,
+  Routes,
+} from 'react-router-dom';
+import "../App/App.css";
+import Main from "../Main/Main";
+import SearchResults from "../SearchResults/SearchResults";
+import Footer from "../Footer/Footer";
+import Preloader from "../Preloader/Preloader";
+import NotFound from "../NotFound/NotFound";
+import Signin from "../SignInPopup/SignInPopup";
+import Signup from "../SignUpPopup/SignUpPopup";
+import RegistrationSuccessful from "../RegistrationSuccessful/RegistrationSuccessful";
+import SavedNews from "../SavedNews/SavedNews";
 
 function App() {
+
+  const [isSignInPopupOpen, setIsSignInPopupOpen] = React.useState(false);
+  const [isSignUpPopupOpen, setIsSignUpPopupOpen] = React.useState(false);
+
+  function handleSignUpClick() {
+    setIsSignUpPopupOpen(true);
+  }
+
+  function closeAllPopups() {
+    setIsSignInPopupOpen(false);
+    setIsSignUpPopupOpen(false);
+  }
+
+  useEffect(() => {
+    function closeByEscape(e) {
+      if (e.key === "Escape") {
+        closeAllPopups();
+      }
+    }
+    document.addEventListener("keydown", closeByEscape);
+    return () => document.removeEventListener("keydown", closeByEscape);
+  }, []);
+
   return (
-    <div className="App">
-      <Main />
-      <SavedNews />
-      <Header />
-      <Navigation />
-      <SearchForm />
-      <NewsCardList />
-      <NewsCard />
-      <About />
+    <div className="app">
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/signin" element={<Signin isOpen={isSignInPopupOpen} onClose={closeAllPopups} />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
       <Preloader />
+      <NotFound />
+      <SearchResults />
+      <SavedNews />
       <Footer />
-      <PopupWithForm />
-      <SavedNewsHeader />
+      <RegistrationSuccessful />
     </div>
   );
 }
