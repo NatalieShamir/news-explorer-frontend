@@ -1,14 +1,13 @@
 .saved-news-header {
   max-width: 1440px;
   min-height: 80px;
-  background: rgba(255, 255, 255, 0.01);
-  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.saved-news-header__image {
+.saved-news-header__logo {
   max-width: 200px;
   height: 24px;
   margin-left: 7%;
@@ -28,7 +27,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  color: #ffffff;
+  color: #1a1b22;
   text-decoration: none;
 }
 
@@ -38,7 +37,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  color: #b6bcbf;
+  color: #1a1b22;
   text-decoration: none;
 }
 
@@ -47,7 +46,7 @@
   background-color: transparent;
   box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
   border-radius: 100px;
-  border: 1px solid white;
+  border: 1px solid #d1d2d6;
   padding: 12px;
   cursor: pointer;
 }
