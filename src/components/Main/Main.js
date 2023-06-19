@@ -9,6 +9,8 @@ import RegistrationSuccessful from "../RegistrationSuccessful/RegistrationSucces
 import {
     Route, Routes
 } from 'react-router-dom';
+import { useEffect } from "react";
+
 
 function Main() {
 
@@ -28,6 +30,16 @@ function Main() {
         setIsSignUpPopupOpen(false);
         setIsRegisterSuccessOpen(false);
     }
+
+    useEffect(() => {
+        function closeByEscape(e) {
+            if (e.key === "Escape") {
+                closeAllPopups();
+            }
+        }
+        document.addEventListener("keydown", closeByEscape);
+        return () => document.removeEventListener("keydown", closeByEscape);
+    }, []);
 
     return (
         <>
