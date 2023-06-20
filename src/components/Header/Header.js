@@ -1,9 +1,43 @@
 import headerLogo from "../../images/header-min.svg";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { NavLink } from 'react-router-dom';
-import "../Header/Header.css"
+import "../Header/Header.css";
+import SignIn from "../SignInPopup/SignInPopup";
 
-function Header({ onSignInClick }) {
+function Header() {
+
+    const [isSignInPopupOpen, setIsSignInPopupOpen] =
+        React.useState(false);
+
+    const ref = useRef()
+
+    function handleSignInClick() {
+        setIsSignInPopupOpen(true);
+    }
+
+    function closeSignInPopup() {
+        setIsSignInPopupOpen(false);
+    }
+
+    useEffect(() => {
+        function closeByEscape(e) {
+            if (e.key === "Escape") {
+                closeSignInPopup();
+            }
+        }
+        document.addEventListener("keydown", closeByEscape);
+        return () => document.removeEventListener("keydown", closeByEscape);
+    }, []);
+
+    useEffect(() => {
+        function handleClickOnOverlay(e) {
+            if (ref.current && !ref.current.contains(e.target)) {
+                closeSignInPopup()
+            }
+        }
+        document.addEventListener("click", handleClickOnOverlay)
+        return () => document.removeEventListener("click", handleClickOnOverlay);
+    }, [ref]);
 
     return (
         <header className="header">
@@ -20,10 +54,11 @@ function Header({ onSignInClick }) {
                     <NavLink to={"/"} className="header__home">
                         Home
                     </NavLink>
-                    <button className="header__button-signin" onClick={onSignInClick}>Sign in</button>
+                    <button className="header__button-signin" onClick={handleSignInClick}>Sign in</button>
                     <button className="header__button-menu"></button>
                 </div>
             </div >
+            <SignIn isOpen={isSignInPopupOpen} onClose={closeSignInPopup} ref={ref} />
         </header >
     );
 }
