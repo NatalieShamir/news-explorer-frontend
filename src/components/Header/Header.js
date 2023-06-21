@@ -1,5 +1,5 @@
 import headerLogo from "../../images/header-min.svg";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from 'react-router-dom';
 import "../Header/Header.css";
 import SignIn from "../SignInPopup/SignInPopup";
@@ -8,8 +8,6 @@ function Header() {
 
     const [isSignInPopupOpen, setIsSignInPopupOpen] =
         React.useState(false);
-
-    const ref = useRef()
 
     function handleSignInClick() {
         setIsSignInPopupOpen(true);
@@ -28,16 +26,6 @@ function Header() {
         document.addEventListener("keydown", closeByEscape);
         return () => document.removeEventListener("keydown", closeByEscape);
     }, []);
-
-    useEffect(() => {
-        function handleClickOnOverlay(e) {
-            if (ref.current && !ref.current.contains(e.target)) {
-                closeSignInPopup()
-            }
-        }
-        document.addEventListener("click", handleClickOnOverlay)
-        return () => document.removeEventListener("click", handleClickOnOverlay);
-    }, [ref]);
 
     return (
         <header className="header">
@@ -58,7 +46,7 @@ function Header() {
                     <button className="header__button-menu"></button>
                 </div>
             </div >
-            <SignIn isOpen={isSignInPopupOpen} onClose={closeSignInPopup} ref={ref} />
+            <SignIn isOpen={isSignInPopupOpen} onClose={closeSignInPopup} />
         </header >
     );
 }

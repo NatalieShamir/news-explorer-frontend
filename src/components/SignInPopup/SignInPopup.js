@@ -4,6 +4,7 @@ import "../SignInPopup/SignInPopup.css";
 import Signup from "../SignUpPopup/SignUpPopup";
 
 function Signin({ isOpen, onClose }) {
+
     const [isSignUpPopupOpen, setIsSignUpPopupOpen] =
         React.useState(false);
 
@@ -24,6 +25,18 @@ function Signin({ isOpen, onClose }) {
         document.addEventListener("keydown", closeByEscape);
         return () => document.removeEventListener("keydown", closeByEscape);
     }, []);
+
+    useEffect(() => {
+        function handleClickOnOverlay(e) {
+            const hasClass = e.target.classList.contains("signin__container");
+            if (!hasClass) {
+                onClose();
+            }
+        }
+        document.addEventListener("click", handleClickOnOverlay);
+        return () => document.removeEventListener("click", handleClickOnOverlay);
+    }, []);
+
 
     return (
         <div className={`${`signin `} ${isOpen ? "signin_open" : ""}`} >
