@@ -7,7 +7,6 @@ function PopupWithForm({
     title,
     children,
     onSubmit,
-    buttonText,
 
 }) {
     return (
