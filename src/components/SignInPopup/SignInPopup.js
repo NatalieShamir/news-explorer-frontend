@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import "../SignInPopup/SignInPopup.css";
 import Signup from "../SignUpPopup/SignUpPopup";
+import PopupWithForm from '../PopupWithForm/PopupWithForm';
+import "../PopupWithForm/PopupWithForm.css";
+import { Link } from 'react-router-dom';
+
 
 function Signin({ isOpen, onClose }) {
 
@@ -29,43 +31,59 @@ function Signin({ isOpen, onClose }) {
     useEffect(() => {
         function handleClickOnOverlay(e) {
             const hasClass = e.target.classList.contains("signin__container");
-            if (!hasClass) {
+            if (hasClass) {
                 onClose();
             }
         }
         document.addEventListener("click", handleClickOnOverlay);
         return () => document.removeEventListener("click", handleClickOnOverlay);
-    }, []);
+    }, [onClose]);
 
 
     return (
-        <div className={`${`signin `} ${isOpen ? "signin_open" : ""}`} >
-            <div className="signin__container" >
-                <button
-                    onClick={onClose}
-                    type="button"
-                    aria-label="close"
-                    className="signin__close-button"
+        <PopupWithForm
+            name="signin"
+            title="Sign in"
+            isOpen={isOpen}
+            onClose={onClose}
+            buttonText={"Sign in"}
+        >
+            {" "}
+            < fieldset className="popup__form-fieldset" >
+                <label htmlFor="email" className="popup__form-label">Email</label>
+                <input
+                    type="email"
+                    id="email-input"
+                    className="popup__form-input"
+                    placeholder="Enter email"
+                    required
                 />
-                <form className="signin__form" >
-                    <h3 className="signin__form-title">Sign in</h3>
-                    <label htmlFor="email" className="signin__form-label">Email</label>
-                    <input type="email" id="email-input" className="signin__form-input" placeholder="Enter email" />
-                    <label htmlFor="password" className="signin__form-label">Password</label>
-                    <input type="password" id="password-input" className="signin__form-input" placeholder="Enter password" />
-                    <button type="submit" className="signin__form-button signin__form-button_disabled">
-                        Sign in
-                    </button>
-                    <div className="signin__signup">
-                        <p className="signin__signup-text">or</p>
-                        <Link style={{ textDecoration: 'none' }} onClick={handleSignUpClick}>
-                            <p className="signin__signup-link"> Sign up</p>
-                        </Link>
-                    </div>
-                </form>
+                <span id="email-input-error" className="popup__form-error"></span>
+            </fieldset >
+            <fieldset className="popup__form-fieldset">
+                <label htmlFor="password" className="popup__form-label">Password</label>
+                <input
+                    type="password"
+                    id="password-input"
+                    className="popup__form-input"
+                    placeholder="Enter password"
+                    required
+                />
+                <span id="password-input-error" className="popup__form-error"></span>
+            </fieldset>
+            {" "}
+            <button type="submit" className="popup__form-button popup__form-button_disabled">
+                Sign in
+            </button>
+            <div className="popup__form-link-container">
+                <p className="popup__form-link-text">or</p>
+                <Link style={{ textDecoration: 'none' }} onClick={handleSignUpClick}>
+                    <p className="popup__form-link">Sign up</p>
+                </Link>
             </div>
             <Signup isOpen={isSignUpPopupOpen} onClose={closeSignUpPopup} />
-        </div>
+        </PopupWithForm >
     )
 }
+
 export default Signin; 
