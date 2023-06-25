@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import "../PopupWithForm/PopupWithForm.css";
@@ -15,16 +15,6 @@ function Signup({ isOpen, onClose }) {
     function closeRegistrationSuccessfulPopup() {
         setIsRegistrationSuccessfulPopupOpen(false);
     }
-
-    useEffect(() => {
-        function closeByEscape(e) {
-            if (e.key === "Escape") {
-                closeRegistrationSuccessfulPopup();
-            }
-        }
-        document.addEventListener("keydown", closeByEscape);
-        return () => document.removeEventListener("keydown", closeByEscape);
-    }, []);
 
     return (
         <>

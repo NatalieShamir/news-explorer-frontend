@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Route,
   Routes,
@@ -7,8 +7,44 @@ import "../App/App.css";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
+import Signin from "../SignInPopup/SignInPopup";
+import Signup from "../SignUpPopup/SignUpPopup";
+import RegistrationSuccessful from "../RegistrationSuccessful/RegistrationSuccessful";
 
 function App() {
+
+  const [isSigninPopupOpen, setIsSigninPopupOpen] =
+    React.useState(false);
+  const [isSignupPopupOpen, setIsSignupPopupOpen] =
+    React.useState(false);
+  const [isRegistrationSuccessfulOpen, setIsRegistrationSuccessfulOpen] = React.useState(false);
+
+
+  function closeAllPopups() {
+    setIsSigninPopupOpen(false);
+    setIsSignupPopupOpen(false);
+    setIsRegistrationSuccessfulOpen(false);
+  }
+
+  useEffect(() => {
+    function closeByEscape(e) {
+      if (e.key === "Escape") {
+        closeAllPopups();
+      }
+    }
+    document.addEventListener("keydown", closeByEscape);
+    return () => document.removeEventListener("keydown", closeByEscape);
+  }, []);
+
+  useEffect(() => {
+    function closePopupOnRemoteClick(e) {
+      if (e.target === e.currentTarget) {
+        closeAllPopups();
+      }
+    }
+    document.addEventListener("mousedown", closePopupOnRemoteClick);
+    return () => document.removeEventListener("mousedown", closePopupOnRemoteClick);
+  }, []);
 
   return (
     <div className="app">
@@ -16,6 +52,18 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/saved-news" element={<SavedNews />} />
       </Routes>
+      <Signin
+        isOpen={isSigninPopupOpen}
+        onClose={closeAllPopups}
+      />
+      <Signup
+        isOpen={isSignupPopupOpen}
+        onClose={closeAllPopups}
+      />
+      <RegistrationSuccessful
+        isOpen={isRegistrationSuccessfulOpen}
+        onClose={closeAllPopups}
+      />
       <Footer />
     </div>
   );

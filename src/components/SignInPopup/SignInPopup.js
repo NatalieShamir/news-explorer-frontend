@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Signup from "../SignUpPopup/SignUpPopup";
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import "../PopupWithForm/PopupWithForm.css";
@@ -18,28 +18,6 @@ function Signin({ isOpen, onClose }) {
         setIsSignUpPopupOpen(false);
     }
 
-    useEffect(() => {
-        function closeByEscape(e) {
-            if (e.key === "Escape") {
-                closeSignUpPopup();
-            }
-        }
-        document.addEventListener("keydown", closeByEscape);
-        return () => document.removeEventListener("keydown", closeByEscape);
-    }, []);
-
-    useEffect(() => {
-        function handleClickOnOverlay(e) {
-            const hasClass = e.target.classList.contains("signin__container");
-            if (hasClass) {
-                onClose();
-            }
-        }
-        document.addEventListener("click", handleClickOnOverlay);
-        return () => document.removeEventListener("click", handleClickOnOverlay);
-    }, [onClose]);
-
-
     return (
         <>
             <PopupWithForm
@@ -47,7 +25,6 @@ function Signin({ isOpen, onClose }) {
                 title="Sign in"
                 isOpen={isOpen}
                 onClose={onClose}
-                buttonText={"Sign in"}
             >
                 {" "}
                 < fieldset className="popup__form-fieldset" >
