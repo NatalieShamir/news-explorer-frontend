@@ -9,6 +9,7 @@ function SavedNewsHeader() {
         <div className="saved-news-header">
             <NavLink to={"/"} className="saved-news-header__logo">
                 <img
+                    className="saved-news-header__logo-image"
                     src={savedNewsHeaderLogo}
                     alt="Project title- NewsExplorer"
                 />
@@ -28,6 +29,7 @@ function SavedNewsHeader() {
                         />
                     </div>
                 </button>
+                <button className="saved-news-header__button-menu"></button>
             </div>
         </div>
     )
