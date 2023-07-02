@@ -21,7 +21,7 @@ function SavedNews({ code }) {
     return (
         <>
             <SavedNewsHeader />
-            <div className="saved-news">
+            <section className="saved-news">
                 <h2 className="saved-news__heading">Saved articles</h2>
                 <h3 className="saved-news__subheading">Elise, you have 5 saved articles</h3>
                 <p className="saved-news__keywords">By keywords:
@@ -30,7 +30,7 @@ function SavedNews({ code }) {
                 <ul className="saved-news__card-list">
                     {React.Children.toArray(cardComponents)}
                 </ul><div>{code}</div>
-            </div >
+            </section >
         </>
     )
 }
