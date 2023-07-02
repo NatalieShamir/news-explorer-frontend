@@ -77,6 +77,10 @@
   line-height: 22px;
   margin-top: 0;
   margin-bottom: 0;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
 }
 
 .card__website {
@@ -131,9 +135,6 @@
     height: 88px;
     margin-top: 0;
     margin-bottom: 0;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
   }
 
   .card__website {
