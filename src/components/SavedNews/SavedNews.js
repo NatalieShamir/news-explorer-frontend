@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NewsCard from "../NewsCard/NewsCard.js";
 import { api } from "../../utils/Api.js";
 import "../SavedNews/SavedNews.css";
-import Header from "../Header/Header.js";
+import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader.js";
 
 function SavedNews({ code }) {
     const [cards, setCards] = useState([]);
@@ -20,7 +20,7 @@ function SavedNews({ code }) {
 
     return (
         <>
-            <Header />
+            <SavedNewsHeader />
             <div className="saved-news">
                 <h2 className="saved-news__heading">Saved articles</h2>
                 <h3 className="saved-news__subheading">Elise, you have 5 saved articles</h3>
