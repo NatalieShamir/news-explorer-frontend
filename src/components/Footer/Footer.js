@@ -5,14 +5,14 @@ import FacebookLogo from "../../images/facebook-min.svg";
 import "../Footer/Footer.css"
 
 export default function Footer() {
-    const handlePracticumClick = () => {
-        window.location.href = 'https://practicum.com/en-isr/';
+    const handlePracticumClick = (url) => {
+        window.open(url, '_blank', 'noopener,noreferrer');
     };
-    const handleGitHubClick = () => {
-        window.location.href = 'https://github.com/';
+    const handleGitHubClick = (url) => {
+        window.open(url, '_blank', 'noopener,noreferrer');
     };
-    const handleFacebookClick = () => {
-        window.location.href = 'https://www.facebook.com/';
+    const handleFacebookClick = (url) => {
+        window.open(url, '_blank', 'noopener,noreferrer');
     };
     return (
         <footer className="footer">
@@ -23,15 +23,15 @@ export default function Footer() {
                     <Link to={"/"} className="footer__home">
                         Home
                     </Link>
-                    <button className="footer__button-practicum" onClick={handlePracticumClick}>
+                    <button className="footer__button-practicum" onClick={() => handlePracticumClick('https://tripleten.com/')}>
                         Practicum
                     </button>
                 </div>
                 <div className="footer__container-icon-items">
-                    <button className="footer__button-github" onClick={handleGitHubClick}>
+                    <button className="footer__button-github" onClick={() => handleGitHubClick('https://github.com/')}>
                         <img src={GitHubLogo} alt="GitHub logo" />
                     </button>
-                    <button className="footer__button-facebook" onClick={handleFacebookClick}>
+                    <button className="footer__button-facebook" onClick={() => handleFacebookClick('https://www.facebook.com/')}>
                         <img src={FacebookLogo} alt="Facebook logo" />
                     </button>
                 </div>
