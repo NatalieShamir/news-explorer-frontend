@@ -30,17 +30,21 @@
   margin: 80px 0 80px 104px;
 }
 
-@media screen and (max-width: 960px) {
+@media only screen and (max-width: 1130px) {
+  .about {
+    justify-content: center;
+  }
+
   .about__heading {
     font-size: 30px;
     line-height: 40px;
     max-width: 424px;
-    margin: 40px 40px 16px 16px;
+    margin: 40px 40px 16px 32px;
   }
 
   .about__text {
     max-width: 424px;
-    margin: 0 96px 40px 32px;
+    margin: 0 40px 96px 32px;
   }
 
   .about__image {
