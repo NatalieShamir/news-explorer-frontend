@@ -2,20 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import "../PopupWithForm/PopupWithForm.css";
-import RegistrationSuccessful from '../RegistrationSuccessful/RegistrationSuccessful';
 
 function Signup({ isOpen, onClose, onSubmit }) {
-    const [isRegistrationSuccessfulPopupOpen, setIsRegistrationSuccessfulPopupOpen] =
-        React.useState(false);
-
-    function handleSignInClick() {
-        setIsRegistrationSuccessfulPopupOpen(true);
-    }
-
-    function closeRegistrationSuccessfulPopup() {
-        setIsRegistrationSuccessfulPopupOpen(false);
-    }
-
     return (
         <>
             <PopupWithForm
@@ -64,7 +52,7 @@ function Signup({ isOpen, onClose, onSubmit }) {
                         />
                         <span id="email-input-error" className="popup__form-error"></span>
                     </fieldset >
-                    <button type="submit" className="popup__form-button" onClick={handleSignInClick}>
+                    <button type="submit" className="popup__form-button">
                         Sign up
                     </button>
                     <div className="popup__form-link-container">
@@ -75,7 +63,6 @@ function Signup({ isOpen, onClose, onSubmit }) {
                     </div>
                 </form>
             </PopupWithForm >
-            <RegistrationSuccessful isOpen={isRegistrationSuccessfulPopupOpen} onClose={closeRegistrationSuccessfulPopup} />
         </>
     )
 }

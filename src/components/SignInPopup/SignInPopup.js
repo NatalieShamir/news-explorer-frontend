@@ -1,23 +1,10 @@
 import React from 'react';
-import Signup from "../SignUpPopup/SignUpPopup";
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import "../PopupWithForm/PopupWithForm.css";
 import { Link } from 'react-router-dom';
 
 
 function Signin({ isOpen, onClose, onSubmit }) {
-
-    const [isSignUpPopupOpen, setIsSignUpPopupOpen] =
-        React.useState(false);
-
-    function handleSignUpClick() {
-        setIsSignUpPopupOpen(true);
-    }
-
-    function closeSignUpPopup() {
-        setIsSignUpPopupOpen(false);
-    }
-
     return (
         <>
             <PopupWithForm
@@ -60,13 +47,12 @@ function Signin({ isOpen, onClose, onSubmit }) {
                     </button>
                     <div className="popup__form-link-container">
                         <p className="popup__form-link-text">or</p>
-                        <Link style={{ textDecoration: 'none' }} onClick={handleSignUpClick}>
+                        <Link style={{ textDecoration: 'none' }}>
                             <p className="popup__form-link">Sign up</p>
                         </Link>
                     </div>
                 </form>
             </PopupWithForm >
-            <Signup isOpen={isSignUpPopupOpen} onClose={closeSignUpPopup} />
         </>
     )
 }
