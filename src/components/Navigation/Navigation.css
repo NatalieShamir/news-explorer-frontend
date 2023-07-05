@@ -1,4 +1,4 @@
-.header {
+.nav {
   width: 100%;
   height: 80px;
   background: rgba(196, 196, 196, 0.01);
@@ -8,17 +8,21 @@
   align-items: center;
 }
 
-.header__logo {
+.nav__logo {
   max-width: 200px;
   height: 24px;
   margin-left: 5%;
 }
 
-.header__container {
-  margin-right: 5%;
+.nav__items {
+  margin: 0 5% 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
 }
 
-.header__home {
+.nav__home {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -29,7 +33,7 @@
   margin-right: 42px;
 }
 
-.header__button-signin {
+.nav__button-signin {
   width: 175px;
   padding: 12px;
   background-color: transparent;
@@ -44,31 +48,26 @@
   cursor: pointer;
 }
 
-.header__button-menu {
+.nav__button-menu {
   display: none;
 }
 
 @media screen and (max-width: 960px) {
-  .header {
+  .nav {
     height: 66px;
   }
 
-  .header__container {
+  .nav__items {
     width: 30%;
-  }
-
-  .header__container-items {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
   }
 
-  .header__home {
+  .nav__home {
     font-size: 16px;
   }
 
-  .header__button-signin {
-    width: 69%;
+  .nav__button-signin {
+    width: 152px;
     padding: 8px 12px;
     background-color: transparent;
     border: 1px solid #ffffff;
@@ -78,27 +77,27 @@
 }
 
 @media screen and (max-width: 600px) {
-  .header {
+  .nav {
     height: 56px;
   }
 
-  .header__image {
+  .nav__logo-image {
     max-width: 117px;
   }
 
-  .header__home {
+  .nav__home {
     display: none;
   }
 
-  .header__button-signin {
+  .nav__button-signin {
     display: none;
   }
 
-  .header__container {
+  .nav__items {
     width: 24px;
   }
 
-  .header__button-menu {
+  .nav__button-menu {
     display: block;
     background: transparent url("../../images/menu.svg");
     width: 24px;
