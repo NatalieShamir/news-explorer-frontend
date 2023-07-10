@@ -6,7 +6,7 @@ import Navigation from "../Navigation/Navigation";
 import hamburgerMenuOpen from "../../images/menu.svg";
 import hamburgerMenuClose from "../../images/close-min.svg";
 
-function Header() {
+function Header({ onSigninClick }) {
     const [isNavOpen, setIsNavOpen] = React.useState(false);
 
     function handleToggleMenu() {
@@ -29,6 +29,7 @@ function Header() {
             </div>
             <Navigation
                 isNavOpen={isNavOpen}
+                onSigninClick={onSigninClick}
             />
         </header >
     );

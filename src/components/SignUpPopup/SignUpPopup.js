@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import "../PopupWithForm/PopupWithForm.css";
 
-function Signup({ isOpen, onClose, onSubmit }) {
+function Signup({ isOpen, onClose, onSubmit, onSigninClick }) {
     return (
         <>
             <PopupWithForm
                 isOpen={isOpen}
-                onClose={onClose}
             >
                 {" "}
                 <button
@@ -58,7 +57,7 @@ function Signup({ isOpen, onClose, onSubmit }) {
                     <div className="popup__form-link-container">
                         <p className="popup__form-link-text">or</p>
                         <Link style={{ textDecoration: 'none' }} >
-                            <p className="popup__form-link">Sign in</p>
+                            <p onClick={onSigninClick} className="popup__form-link">Sign in</p>
                         </Link>
                     </div>
                 </form>

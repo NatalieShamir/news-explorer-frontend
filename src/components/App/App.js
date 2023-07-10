@@ -19,6 +19,19 @@ function App() {
     React.useState(false);
   const [isRegistrationSuccessfulOpen, setIsRegistrationSuccessfulOpen] = React.useState(false);
 
+  function handleOpenSigninClick() {
+    setIsSigninPopupOpen(true);
+  }
+
+  function handleSwitchToSignup() {
+    setIsSigninPopupOpen(false);
+    setIsSignupPopupOpen(true);
+  }
+
+  function handleSwitchToSignin() {
+    setIsSignupPopupOpen(false);
+    setIsSigninPopupOpen(true);
+  }
 
   function closeAllPopups() {
     setIsSigninPopupOpen(false);
@@ -49,16 +62,20 @@ function App() {
   return (
     <div className="app">
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main
+          onSigninClick={handleOpenSigninClick}
+        />} />
         <Route path="/saved-news" element={<SavedNews />} />
       </Routes>
       <Signin
         isOpen={isSigninPopupOpen}
         onClose={closeAllPopups}
+        onSignupClick={handleSwitchToSignup}
       />
       <Signup
         isOpen={isSignupPopupOpen}
         onClose={closeAllPopups}
+        onSigninClick={handleSwitchToSignin}
       />
       <RegistrationSuccessful
         isOpen={isRegistrationSuccessfulOpen}

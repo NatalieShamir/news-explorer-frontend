@@ -4,12 +4,11 @@ import "../PopupWithForm/PopupWithForm.css";
 import { Link } from 'react-router-dom';
 
 
-function Signin({ isOpen, onClose, onSubmit }) {
+function Signin({ isOpen, onClose, onSubmit, onSignupClick }) {
     return (
         <>
             <PopupWithForm
                 isOpen={isOpen}
-                onClose={onClose}
             >
                 {" "}
                 <button
@@ -47,8 +46,8 @@ function Signin({ isOpen, onClose, onSubmit }) {
                     </button>
                     <div className="popup__form-link-container">
                         <p className="popup__form-link-text">or</p>
-                        <Link style={{ textDecoration: 'none' }}>
-                            <p className="popup__form-link">Sign up</p>
+                        <Link style={{ textDecoration: 'none' }} >
+                            <p onClick={onSignupClick} className="popup__form-link" >Sign up</p>
                         </Link>
                     </div>
                 </form>

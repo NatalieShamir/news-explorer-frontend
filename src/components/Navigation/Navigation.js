@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import "../Navigation/Navigation.css";
 
-function Navigation({ isNavOpen }) {
+function Navigation({ isNavOpen, onSigninClick }) {
 
     return (
         <nav className={`${`nav`} ${isNavOpen ? "nav_open" : ""}`}>
@@ -13,7 +13,7 @@ function Navigation({ isNavOpen }) {
                     </Link>
                 </li>
                 <li className="nav__item">
-                    <button className="nav__button-signin">Sign in</button>
+                    <button className="nav__button-signin" onClick={onSigninClick}>Sign in</button>
                 </li>
             </ul>
         </nav >
