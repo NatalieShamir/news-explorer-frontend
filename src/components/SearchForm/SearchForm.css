@@ -6,7 +6,7 @@
 .search__form-heading {
   max-width: 608px;
   margin: 80px 0 32px 0;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 60px;
@@ -15,7 +15,7 @@
 }
 
 .search__form-text {
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -35,7 +35,7 @@
   border: 1px solid #d1d2d6;
   border-radius: 100px;
   padding: 21px 208px 21px 24px;
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -63,7 +63,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -97,7 +97,6 @@
 
   .search__form-input {
     height: 56px;
-    padding: 17px 196px 17px 24px;
   }
 
   .seacrh__form-button {
