@@ -209,6 +209,7 @@
   }
 
   .popup__form-button {
+    padding: 20px 79px;
     margin: 0 16px 16px 16px;
   }
 }
