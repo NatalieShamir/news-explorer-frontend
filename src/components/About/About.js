@@ -7,8 +7,7 @@ function About() {
         <section className="about">
             <div className="about__container">
                 <h3 className="about__heading">About the author</h3>
-                <p className="about__text">This block describes the project author. Here you should indicate your name, what you do, and which development technologies you know.
-                    You can also talk about your experience with Practicum, what you learned there, and how you can help potential customers.</p>
+                <p className="about__text">Hi, I'm Natalie Shamir, a junior web developer. I revently completed Triple Ten's web development program, and am currently working on completing my final project. During my time with Triple Ten I acquired knowledge and skills in CSS, Responsive Design and MERN Stack. I am eager to continue developing my skills further and showcasing them in the professional field.  </p>
             </div>
             <img className="about__image" src={aboutImage} alt="The project's author"></img>
         </section>

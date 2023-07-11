@@ -25,8 +25,9 @@
 }
 
 .about__image {
-  width: 100%;
-  max-width: 464px;
+  border-radius: 50%;
+  width: 464px;
+  height: 464px;
   margin: 80px 0 80px 104px;
 }
 
