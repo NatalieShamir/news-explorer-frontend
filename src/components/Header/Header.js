@@ -6,7 +6,7 @@ import Navigation from "../Navigation/Navigation";
 import hamburgerMenuOpen from "../../images/menu.svg";
 import hamburgerMenuClose from "../../images/close-min.svg";
 
-function Header({ onSigninClick }) {
+function Header({ onSigninClick, isLoggedIn }) {
     const [isNavOpen, setIsNavOpen] = React.useState(false);
 
     function handleToggleMenu() {
@@ -14,6 +14,7 @@ function Header({ onSigninClick }) {
     }
 
     return (
+
         <header className={isNavOpen ? "header_hamburger_menu_open" : "header"}>
             <div className="header__container">
                 <Link to={"/"} className="header__logo">
@@ -30,9 +31,10 @@ function Header({ onSigninClick }) {
             <Navigation
                 isNavOpen={isNavOpen}
                 onSigninClick={onSigninClick}
+                isLoggedIn={isLoggedIn}
             />
         </header >
-    );
+    )
 }
 
 export default Header;

@@ -1,21 +1,25 @@
-import React from "react";
+/* import React from "react";
 import Parent from "../Parent/Parent";
 import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
-import About from "../About/About";
+import About from "../About/About"; */
+import Header from "../Header/Header";
 import SavedNews from "../SavedNews/SavedNews";
+import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 
 
-function Main({ onSigninClick }) {
+function Main({ onSigninClick, isLoggedIn }) {
     return (
         <>
-            <Parent>
-                <Header
-                    onSigninClick={onSigninClick}
-                />
+            {/* <Parent>
                 <SearchForm />
             </Parent>
-            <About />
+            <About /> */}
+            <Header
+                onSigninClick={onSigninClick}
+                isLoggedIn={isLoggedIn}
+            />
+            <SavedNewsHeader />
             <SavedNews />
         </>
     )

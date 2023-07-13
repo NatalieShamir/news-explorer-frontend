@@ -18,6 +18,7 @@ function App() {
   const [isSignupPopupOpen, setIsSignupPopupOpen] =
     React.useState(false);
   const [isRegistrationSuccessfulOpen, setIsRegistrationSuccessfulOpen] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   function handleOpenSigninClick() {
     setIsSigninPopupOpen(true);
@@ -64,6 +65,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main
           onSigninClick={handleOpenSigninClick}
+          isLoggedIn={isLoggedIn}
         />} />
         <Route path="/saved-news" element={<SavedNews />} />
       </Routes>
