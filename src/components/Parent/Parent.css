@@ -1,0 +1,21 @@
+.parent {
+  width: 100%;
+  min-height: 576px;
+  background: url("../../images/georgia-de-lotz.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media screen and (max-width: 960px) {
+  .parent {
+    min-height: 400px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .parent {
+    min-height: 536px;
+  }
+}
