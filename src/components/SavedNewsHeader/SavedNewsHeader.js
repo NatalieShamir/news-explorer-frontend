@@ -1,37 +1,17 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
 import "../SavedNewsHeader/SavedNewsHeader.css";
-import savedNewsHeaderLogo from "../../images/saved-news-header-logo.svg";
-import logout from "../../images/logout.svg";
 
 function SavedNewsHeader() {
     return (
-        <div className="saved-news-header">
-            <NavLink to={"/"} className="saved-news-header__logo">
-                <img
-                    className="saved-news-header__logo-image"
-                    src={savedNewsHeaderLogo}
-                    alt="Project title- NewsExplorer"
-                />
-            </NavLink>
-
-            <div className="saved-news-header__container">
-                <NavLink to={"/"} className="saved-news-header__home">
-                    Home
-                </NavLink>
-                <NavLink to={"/saved-news"} className="saved-news-header__articles">Saved articles</NavLink>
-                <button className="saved-news-header__button">
-                    <div className="saved-news-header__button-items">
-                        <div className="saved-news-header__user">Elise</div>
-                        <img className="saved-news-header__logout"
-                            src={logout}
-                            alt="logout icon"
-                        />
-                    </div>
-                </button>
-                <button className="saved-news-header__button-menu"></button>
+        <>
+            <div className="saved-news-header">
+                <h2 className="saved-news-header__heading">Saved articles</h2>
+                <h3 className="saved-news-header__subheading">Elise, you have 5 saved articles</h3>
+                <p className="saved-news-header__keywords">By keywords:
+                    <span className="saved-news-header__keywords-bold" style={{ fontWeight: 'bold' }}>Nature, Yellowstone, and 2 other</span>
+                </p>
             </div>
-        </div>
+        </>
     )
 }
 
