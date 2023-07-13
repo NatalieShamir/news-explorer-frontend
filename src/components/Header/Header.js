@@ -25,7 +25,7 @@ function Header({ onSigninClick, isLoggedIn }) {
                     />
                 </Link>
                 <button className="header__hamburger-menu-toggle" onClick={handleToggleMenu}>
-                    {isNavOpen ? <img src={hamburgerMenuClose} /> : <img src={hamburgerMenuOpen} />}
+                    {isNavOpen ? <img src={hamburgerMenuClose} alt="x icon" /> : <img src={hamburgerMenuOpen} alt="toggle drop down menu" />}
                 </button>
             </div>
             <Navigation
