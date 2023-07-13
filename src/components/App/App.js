@@ -18,7 +18,7 @@ function App() {
   const [isSignupPopupOpen, setIsSignupPopupOpen] =
     React.useState(false);
   const [isRegistrationSuccessfulOpen, setIsRegistrationSuccessfulOpen] = React.useState(false);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);// eslint-disable-line
 
   function handleOpenSigninClick() {
     setIsSigninPopupOpen(true);
