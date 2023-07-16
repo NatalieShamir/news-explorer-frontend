@@ -1,0 +1,34 @@
+.preloader__container {
+  background-color: #f5f6f7;
+  height: 282px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.preloader__circle {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #444;
+  border-bottom-color: #888;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spin 0.75s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.preloader__text {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #b6bcbf;
+  margin: 0;
+}
