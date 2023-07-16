@@ -1,6 +1,6 @@
 # News Explorer Frontend
 
-The frontend part of the News Explorer App. Features usage of Semantic HTML, CSS, BEM specifications implematation in naming classes, element arrangement with CSS Flexbox and CSS Grid, element stacking using z-index and the use of media queries for creating different layouts depneding on viewport size.
+The frontend part of the News Explorer App. Features usage of Semantic HTML, CSS, BEM specifications implementation in naming classes, element arrangement with CSS Flexbox and CSS Grid, element stacking using z-index and the use of media queries for creating different layouts depending on viewport size.
 
 ## Installation
 
