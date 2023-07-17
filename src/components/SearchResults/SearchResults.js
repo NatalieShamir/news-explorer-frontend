@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../SearchResults/SearchResults.css"
 import NewsCard from "../NewsCard/NewsCard";
-import { api } from "../../utils/Api.js"
+import { api } from "../../utils/NewsApi";
 
 function SearchResults({ code }) {
   const [cards, setCards] = useState([]);

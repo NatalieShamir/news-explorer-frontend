@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NewsCard from "../NewsCard/NewsCard.js";
-import { api } from "../../utils/Api.js";
+import { api } from "../../utils/NewsApi.js";
 import "../SavedNews/SavedNews.css";
 
 function SavedNews({ code }) {
