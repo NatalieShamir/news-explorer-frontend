@@ -7,9 +7,11 @@ import "../App/App.css";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
-import Signin from "../SignInPopup/SignInPopup";
-import Signup from "../SignUpPopup/SignUpPopup";
 import RegistrationSuccessful from "../RegistrationSuccessful/RegistrationSuccessful";
+import * as auth from "../../utils/auth";
+import { Login } from "../Login/Login";
+import { Register } from "../Register/Register";
+
 
 function App() {
 
@@ -18,7 +20,48 @@ function App() {
   const [isSignupPopupOpen, setIsSignupPopupOpen] =
     React.useState(false);
   const [isRegistrationSuccessfulOpen, setIsRegistrationSuccessfulOpen] = React.useState(false);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);// eslint-disable-line
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [email, setEmail] = React.useState("");
+  const [isSuccessful, setIsSuccessful] = React.useState(true);
+
+  function register(email, password, username) {
+    auth.signup(email, password, username)
+      .then(res => {
+        if (res._id) {
+          setIsSuccessful("successful");
+          setTimeout(() => {
+            window.history.push("/signin");
+            setIsRegistrationSuccessfulOpen(false);
+          }, 3000)
+        } else {
+          setIsSuccessful("fail");
+        }
+      })
+      .catch((err) => {
+        setIsSuccessful("fail");
+      })
+      .finally(() => {
+        setIsRegistrationSuccessfulOpen(true);
+      });
+  }
+
+
+  function login(email, password) {
+    auth.signin(email, password)
+      .then(res => {
+        if (res.token) {
+          setIsLoggedIn(true)
+          setEmail(email)
+          localStorage.setItem("jwt", res.token)
+          window.history.push("/")
+        } else {
+          setIsSuccessful("fail");
+        }
+      })
+      .catch((err) => {
+        setIsSuccessful("fail");
+      })
+  }
 
   function handleOpenSigninClick() {
     setIsSigninPopupOpen(true);
@@ -68,20 +111,25 @@ function App() {
           isLoggedIn={isLoggedIn}
         />} />
         <Route path="/saved-news" element={<SavedNews />} />
+        <Route path="/signin" element={<Login
+          onLogin={login}
+          isOpen={isSigninPopupOpen}
+          onClose={closeAllPopups}
+          onSignupClick={handleSwitchToSignup}
+        />}
+        />
+        <Route path="/signup" element={<Register
+          onRegister={register}
+          isOpen={isSignupPopupOpen}
+          onClose={closeAllPopups}
+          onSigninClick={handleSwitchToSignin}
+        />}
+        />
       </Routes>
-      <Signin
-        isOpen={isSigninPopupOpen}
-        onClose={closeAllPopups}
-        onSignupClick={handleSwitchToSignup}
-      />
-      <Signup
-        isOpen={isSignupPopupOpen}
-        onClose={closeAllPopups}
-        onSigninClick={handleSwitchToSignin}
-      />
       <RegistrationSuccessful
         isOpen={isRegistrationSuccessfulOpen}
         onClose={closeAllPopups}
+        isSuccessful={isSuccessful}
       />
       <Footer />
     </div>
