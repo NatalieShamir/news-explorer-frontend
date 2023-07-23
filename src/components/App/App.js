@@ -11,6 +11,7 @@ import RegistrationSuccessful from "../RegistrationSuccessful/RegistrationSucces
 import * as auth from "../../utils/auth";
 import { Login } from "../Login/Login";
 import { Register } from "../Register/Register";
+import { UserContext } from "../../contexts/CurrentUserContext";
 
 
 function App() {
@@ -44,7 +45,6 @@ function App() {
         setIsRegistrationSuccessfulOpen(true);
       });
   }
-
 
   function login(email, password) {
     auth.signin(email, password)
