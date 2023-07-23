@@ -24,6 +24,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [email, setEmail] = React.useState("");
   const [isSuccessful, setIsSuccessful] = React.useState(true);
+  const [currentUser, setCurrentUser] = React.useState({});
 
   function register(email, password, username) {
     auth.signup(email, password, username)
