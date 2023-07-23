@@ -5,13 +5,14 @@ import SearchForm from "../SearchForm/SearchForm";
 import About from "../About/About";
 
 
-function Main({ onSigninClick, isLoggedIn }) {
+function Main({ onSigninClick, isLoggedIn, username }) {
     return (
         <>
             <Parent>
                 <Header
                     onSigninClick={onSigninClick}
                     isLoggedIn={isLoggedIn}
+                    username={username}
                 />
                 <SearchForm />
             </Parent>
