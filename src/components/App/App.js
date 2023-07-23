@@ -22,7 +22,7 @@ function App() {
     React.useState(false);
   const [isRegistrationSuccessfulOpen, setIsRegistrationSuccessfulOpen] = React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [email, setEmail] = React.useState("");
+  const [username, setUsername] = React.useState({} || "");
   const [isSuccessful, setIsSuccessful] = React.useState(true);
   const [currentUser, setCurrentUser] = React.useState({});
 
@@ -52,7 +52,7 @@ function App() {
       .then(res => {
         if (res.token) {
           setIsLoggedIn(true)
-          setEmail(email)
+          setUsername(username)
           localStorage.setItem("jwt", res.token)
           window.history.push("/")
         } else {
@@ -111,7 +111,7 @@ function App() {
           <Route path="/" element={<Main
             onSigninClick={handleOpenSigninClick}
             isLoggedIn={isLoggedIn}
-            email={email}
+            username={username}
           />} />
           <Route path="/saved-news" element={<SavedNews />} />
           <Route path="/signin" element={<Login
