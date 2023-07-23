@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import {
   Route,
   Routes,
+  useNavigate
 } from 'react-router-dom';
 import "../App/App.css";
 import Main from "../Main/Main";
@@ -25,6 +26,7 @@ function App() {
   const [username, setUsername] = React.useState({} || "");
   const [isSuccessful, setIsSuccessful] = React.useState(true);
   const [currentUser, setCurrentUser] = React.useState({});
+  const navigate = useNavigate();
 
   function register(email, password, username) {
     auth.signup(email, password, username)
@@ -32,7 +34,7 @@ function App() {
         if (res._id) {
           setIsSuccessful("successful");
           setTimeout(() => {
-            window.history.push("/signin");
+            navigate("/signin");
             setIsRegistrationSuccessfulOpen(false);
           }, 3000)
         } else {
@@ -54,7 +56,7 @@ function App() {
           setIsLoggedIn(true)
           setUsername(username)
           localStorage.setItem("jwt", res.token)
-          window.history.push("/")
+          navigate("/")
         } else {
           setIsSuccessful("fail");
         }
@@ -63,6 +65,21 @@ function App() {
         setIsSuccessful("fail");
       })
   }
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt")
+
+    if (token) {
+      auth.checkToken(token)
+        .then(res => {
+          const { data: { username } } = res
+          setUsername(username)
+          setIsLoggedIn(true);
+          navigate("/")
+        })
+        .catch((err) => console.log(err))
+    }
+  }, [navigate])
 
   function handleOpenSigninClick() {
     setIsSigninPopupOpen(true);
