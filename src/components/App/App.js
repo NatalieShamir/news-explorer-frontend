@@ -111,6 +111,7 @@ function App() {
           <Route path="/" element={<Main
             onSigninClick={handleOpenSigninClick}
             isLoggedIn={isLoggedIn}
+            email={email}
           />} />
           <Route path="/saved-news" element={<SavedNews />} />
           <Route path="/signin" element={<Login
