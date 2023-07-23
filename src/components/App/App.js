@@ -66,6 +66,14 @@ function App() {
       })
   }
 
+
+  function logout() {
+    localStorage.removeItem("jwt")
+    setIsLoggedIn(false)
+    setUsername("")
+    navigate("/signin")
+  }
+
   useEffect(() => {
     const token = localStorage.getItem("jwt")
 
@@ -129,6 +137,7 @@ function App() {
             onSigninClick={handleOpenSigninClick}
             isLoggedIn={isLoggedIn}
             username={username}
+            onLogout={logout}
           />} />
           <Route path="/saved-news" element={<SavedNews />} />
           <Route path="/signin" element={<Login

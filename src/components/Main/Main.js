@@ -5,7 +5,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import About from "../About/About";
 
 
-function Main({ onSigninClick, isLoggedIn, username }) {
+function Main({ onSigninClick, isLoggedIn, username, onLogout }) {
     return (
         <>
             <Parent>
@@ -13,6 +13,7 @@ function Main({ onSigninClick, isLoggedIn, username }) {
                     onSigninClick={onSigninClick}
                     isLoggedIn={isLoggedIn}
                     username={username}
+                    onLogout={onLogout}
                 />
                 <SearchForm />
             </Parent>

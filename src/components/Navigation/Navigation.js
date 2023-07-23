@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import "../Navigation/Navigation.css";
 import logout from "../../images/logout.svg";
 
-function Navigation({ isNavOpen, onSigninClick, isLoggedIn, username }) {
+function Navigation({ isNavOpen, onSigninClick, isLoggedIn, username, onLogout }) {
 
     return (
         <nav className={`${`nav`} ${isNavOpen ? "nav_open" : ""}`}>
@@ -18,7 +18,7 @@ function Navigation({ isNavOpen, onSigninClick, isLoggedIn, username }) {
                         <Link to={"/saved-news"} className="nav__articles">Saved articles</Link>
                     </li>
                     <li className="nav__item">
-                        <button className="nav__button-signout">
+                        <button className="nav__button-signout" onClick={onLogout}>
                             <div className="nav__button-signout-items">
                                 <div className="nav__user">{username}</div>
                                 <img className="nav__logout"
