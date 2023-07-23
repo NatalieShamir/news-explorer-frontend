@@ -105,35 +105,37 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <Routes>
-        <Route path="/" element={<Main
-          onSigninClick={handleOpenSigninClick}
-          isLoggedIn={isLoggedIn}
-        />} />
-        <Route path="/saved-news" element={<SavedNews />} />
-        <Route path="/signin" element={<Login
-          onLogin={login}
-          isOpen={isSigninPopupOpen}
+    <UserContext.Provider value={currentUser}>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<Main
+            onSigninClick={handleOpenSigninClick}
+            isLoggedIn={isLoggedIn}
+          />} />
+          <Route path="/saved-news" element={<SavedNews />} />
+          <Route path="/signin" element={<Login
+            onLogin={login}
+            isOpen={isSigninPopupOpen}
+            onClose={closeAllPopups}
+            onSignupClick={handleSwitchToSignup}
+          />}
+          />
+          <Route path="/signup" element={<Register
+            onRegister={register}
+            isOpen={isSignupPopupOpen}
+            onClose={closeAllPopups}
+            onSigninClick={handleSwitchToSignin}
+          />}
+          />
+        </Routes>
+        <RegistrationSuccessful
+          isOpen={isRegistrationSuccessfulOpen}
           onClose={closeAllPopups}
-          onSignupClick={handleSwitchToSignup}
-        />}
+          isSuccessful={isSuccessful}
         />
-        <Route path="/signup" element={<Register
-          onRegister={register}
-          isOpen={isSignupPopupOpen}
-          onClose={closeAllPopups}
-          onSigninClick={handleSwitchToSignin}
-        />}
-        />
-      </Routes>
-      <RegistrationSuccessful
-        isOpen={isRegistrationSuccessfulOpen}
-        onClose={closeAllPopups}
-        isSuccessful={isSuccessful}
-      />
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </UserContext.Provider>
   );
 }
 
