@@ -23,7 +23,7 @@ function SearchForm() {
                         placeholder="Enter topic"
                         value={searchTopic}
                     />
-                    <button className="seacrh__form-button">Search</button>
+                    <button type="submit" className="seacrh__form-button">Search</button>
                 </div>
             </form>
         </div>
