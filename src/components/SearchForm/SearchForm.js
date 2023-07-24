@@ -1,7 +1,10 @@
 import React from "react";
 import "../SearchForm/SearchForm.css";
 
-function SearchForm({ keyword }) {
+function SearchForm() {
+
+    const [searchTopic, setSearchTopic] = React.useState("");
+
     return (
         <div className="search">
             <form className="search__form">
