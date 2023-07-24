@@ -8,7 +8,7 @@ function SearchResults({ code }) {
 
   useEffect(() => {
     newsApi
-      .getCardList()
+      .getCards()
       .then((res) => {
         setCards(res);
       })
