@@ -1,5 +1,6 @@
 import React from "react";
 import "../SearchForm/SearchForm.css";
+import { newsApi } from "../../utils/NewsApi";
 
 function SearchForm({ keyword }) {
     return (

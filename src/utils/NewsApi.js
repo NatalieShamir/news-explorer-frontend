@@ -1,4 +1,4 @@
-class Api {
+class NewsApi {
   constructor({ baseUrl, apiKey }) {
     this._baseUrl = baseUrl;
     this._apiKey = apiKey;
@@ -19,7 +19,7 @@ class Api {
   }
 }
 
-export const api = new Api({
+export const newsApi = new NewsApi({
   baseUrl: "https://newsapi.org",
   apiKey: "8b6a35e7b7c1456db4c96ab984919f90"
 });
