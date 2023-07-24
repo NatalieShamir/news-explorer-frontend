@@ -5,13 +5,18 @@ function SearchForm() {
 
     const [searchTopic, setSearchTopic] = React.useState("");
 
-    const handleInput = (e) => {
-        setSearchVal(e.target.value);
+    function handleInput(e) {
+        setSearchTopic(e.target.value);
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        onSubmit(searchTopic)
     }
 
     return (
         <div className="search">
-            <form className="search__form">
+            <form className="search__form" onSubmit={handleSubmit}>
                 <h1 className="search__form-heading">What's going on in the world?</h1>
                 <p className="search__form-text">Find the latest news on any topic and save them in your personal account.</p>
                 <div className="search__form-field-container">
