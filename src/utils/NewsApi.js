@@ -11,7 +11,7 @@ class NewsApi {
     return Promise.reject(`Error ${res.status}`);
   }
 
-  getNewsItems(keyword) {
+  getCards(keyword) {
     const currentDate = new Date().toJSON().slice(0, 10);
     const pastDate = currentDate.setDate(currentDate.getDate() - 7);
     return fetch(`this._baseUrl + "/everything?q=${keyword}&apiKey=${this._apiKey}&from=${pastDate}&to=${currentDate}&pageSize=100`)
