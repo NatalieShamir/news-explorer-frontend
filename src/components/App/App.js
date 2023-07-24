@@ -13,6 +13,7 @@ import * as auth from "../../utils/auth";
 import { Login } from "../Login/Login";
 import { Register } from "../Register/Register";
 import { UserContext } from "../../contexts/CurrentUserContext";
+import { newsApi } from "../../utils/NewsApi";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [username, setUsername] = React.useState({} || "");
   const [currentUser, setCurrentUser] = React.useState({});
+  const [cards, setCards] = useState([]);
   const navigate = useNavigate();
 
   function register(email, password, username) {
@@ -60,6 +62,14 @@ function App() {
       .finally(() => closeAllPopups())
   }
 
+  useEffect(() => {
+    newsApi
+      .getCards()
+      .then((res) => {
+        setCards(res);
+      })
+      .catch(console.log);
+  }, []);
 
   function logout() {
     localStorage.removeItem("jwt")
@@ -123,6 +133,10 @@ function App() {
     return () => document.removeEventListener("mousedown", closePopupOnRemoteClick);
   }, []);
 
+  function handleSearchFormSubmit() {
+
+  }
+
   return (
     <UserContext.Provider value={currentUser}>
       <div className="app">
@@ -132,6 +146,7 @@ function App() {
             isLoggedIn={isLoggedIn}
             username={username}
             onLogout={logout}
+            cards={cards}
           />} />
           <Route path="/saved-news" element={<SavedNews />} />
           <Route path="/signin" element={<Login

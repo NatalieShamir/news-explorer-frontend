@@ -1,19 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../SearchResults/SearchResults.css"
 import NewsCard from "../NewsCard/NewsCard";
-import { newsApi } from "../../utils/NewsApi";
 
-function SearchResults({ code }) {
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    newsApi
-      .getCards()
-      .then((res) => {
-        setCards(res);
-      })
-      .catch(console.log);
-  }, []);
+function SearchResults({ cards }) {
 
   const cardComponents = cards.slice(0, 3).map((card) => <NewsCard {...card} key={card.id} />);
 
@@ -22,7 +11,7 @@ function SearchResults({ code }) {
       <h2 className="search-results__heading">Search results</h2>
       <ul className="search-results__card-list">
         {React.Children.toArray(cardComponents)}
-      </ul><div>{code}</div>
+      </ul><div>{cards}</div>
       <button type="button" className="search-results__button">Show more</button>
     </section>
   )

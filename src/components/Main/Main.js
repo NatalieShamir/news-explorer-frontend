@@ -6,7 +6,7 @@ import About from "../About/About";
 import { useLocation } from "react-router-dom";
 import SearchResults from "../SearchResults/SearchResults";
 
-function Main({ onSigninClick, isLoggedIn, username, onLogout }) {
+function Main({ onSigninClick, isLoggedIn, username, onLogout, cards }) {
     const location = useLocation();
     return (
         <>
@@ -20,7 +20,9 @@ function Main({ onSigninClick, isLoggedIn, username, onLogout }) {
                 <SearchForm />
             </Parent>
             {!location.pathname === "/articles" &&
-                <SearchResults />}
+                <SearchResults
+                    cards={cards}
+                />}
             <About />
         </>
     )
