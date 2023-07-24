@@ -24,29 +24,21 @@ function App() {
   const [isRegistrationSuccessfulOpen, setIsRegistrationSuccessfulOpen] = React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [username, setUsername] = React.useState({} || "");
-  const [isSuccessful, setIsSuccessful] = React.useState(true);
   const [currentUser, setCurrentUser] = React.useState({});
   const navigate = useNavigate();
 
   function register(email, password, username) {
     auth.signup(email, password, username)
-      .then(res => {
-        if (res._id) {
-          setIsSuccessful("successful");
-          setTimeout(() => {
-            navigate("/signin");
-            setIsRegistrationSuccessfulOpen(false);
-          }, 3000)
-        } else {
-          setIsSuccessful("fail");
-        }
+      .then((res) => {
+        console.log(res._id)
+      })
+      .then(() => {
+        closeAllPopups();
+        setIsRegistrationSuccessfulOpen(true);
       })
       .catch((err) => {
-        setIsSuccessful("fail");
+        console.log(`Error: ${err.status}`);
       })
-      .finally(() => {
-        setIsRegistrationSuccessfulOpen(true);
-      });
   }
 
   function login(email, password) {
