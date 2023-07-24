@@ -2,6 +2,8 @@ import React from "react";
 import "../SearchForm/SearchForm.css";
 import { newsApi } from "../../utils/NewsApi";
 
+const [newsItems, setNewsItems] = React.useState([]);
+
 function SearchForm({ keyword }) {
     return (
         <div className="search">
