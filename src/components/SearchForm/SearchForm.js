@@ -1,7 +1,7 @@
 import React from "react";
 import "../SearchForm/SearchForm.css";
 
-function SearchForm() {
+function SearchForm({ onSubmit }) {
 
     const [searchTopic, setSearchTopic] = React.useState("");
 

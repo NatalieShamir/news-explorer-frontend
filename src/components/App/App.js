@@ -49,13 +49,15 @@ function App() {
           setUsername(username)
           localStorage.setItem("jwt", res.token)
           navigate("/")
-        } else {
-          setIsSuccessful("fail");
+        }
+        else {
+          console.log("failed to sign-in")
         }
       })
       .catch((err) => {
-        setIsSuccessful("fail");
+        console.log(err);
       })
+      .finally(() => closeAllPopups())
   }
 
 
@@ -150,7 +152,6 @@ function App() {
         <RegistrationSuccessful
           isOpen={isRegistrationSuccessfulOpen}
           onClose={closeAllPopups}
-          isSuccessful={isSuccessful}
         />
         <Footer />
       </div>
