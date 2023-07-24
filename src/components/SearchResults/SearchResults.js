@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../SearchResults/SearchResults.css"
 import NewsCard from "../NewsCard/NewsCard";
-import { api } from "../../utils/NewsApi";
+import { newsApi } from "../../utils/NewsApi";
 
 function SearchResults({ code }) {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    api
+    newsApi
       .getCardList()
       .then((res) => {
         setCards(res);
