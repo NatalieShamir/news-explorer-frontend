@@ -3,15 +3,15 @@ import "../SearchForm/SearchForm.css";
 
 function SearchForm({ onSubmit }) {
 
-    const [keyword, setKeyword] = React.useState("");
+    const [searchWord, setSearchWord] = React.useState("");
 
     function handleInput(e) {
-        setKeyword(e.target.value);
+        setSearchWord(e.target.value);
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        onSubmit(keyword)
+        onSubmit(searchWord)
     }
 
     return (
@@ -26,7 +26,7 @@ function SearchForm({ onSubmit }) {
                         id="search"
                         className="search__form-input"
                         placeholder="Enter topic"
-                        value={keyword}
+                        value={searchWord}
                     />
                     <button type="submit" className="seacrh__form-button">Search</button>
                 </div>

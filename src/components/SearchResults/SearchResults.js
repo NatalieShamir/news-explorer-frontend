@@ -2,18 +2,27 @@ import React from "react";
 import "../SearchResults/SearchResults.css"
 import NewsCard from "../NewsCard/NewsCard";
 
-function SearchResults({ cards }) {
+function SearchResults({ searchedArticles }) {
+  const [showCards, setShowCards] = React.useState(0);
 
-  const cardComponents = cards.slice(0, 3).map((card) => <NewsCard {...card} key={card.id} />);
+  function handleShowMore() {
+    setShowCards(showCards + 3);
+  }
 
   return (
     <section className="search-results">
       <h2 className="search-results__heading">Search results</h2>
       <ul className="search-results__card-list">
-        {React.Children.toArray(cardComponents)}
-      </ul><div>{cards}</div>
-      <button type="button" className="search-results__button">Show more</button>
-    </section>
+        {""}
+        {searchedArticles.slice(0, 3 + showCards).map((card) => {
+          return (
+            <NewsCard {...card} key={card._id} />
+          )
+        })}
+      </ul>
+      {showCards < searchedArticles.length && (<button type="button" className="search-results__button" onClick={handleShowMore}>Show more</button>
+      )}
+    </section >
   )
 }
 

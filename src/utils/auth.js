@@ -1,4 +1,4 @@
-export const BASE_URL = "https://api.natalie.fr.to"
+export const BASE_URL = "localhost:3000";//"https://api.natalie.fr.to"
 
 function checkResponse(res) {
     if (res.ok) {

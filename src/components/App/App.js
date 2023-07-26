@@ -26,7 +26,10 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [username, setUsername] = React.useState({} || "");
   const [currentUser, setCurrentUser] = React.useState({});
-  const [cards, setCards] = useState([]);
+  const [searchedArticles, setSearchedArticles] = React.useState((JSON.parse(localStorage.getItem("searchResults"))));
+  const [isSeacrhProcessing, setIsSearchProcessing] = React.useState(false);
+  const [submitSearch, setSubmitSearch] = React.useState(false);
+  const [keyword, setKeyword] = React.useState(localStorage.getItem("keyword"));
   const navigate = useNavigate();
 
   function register(email, password, username) {
@@ -61,15 +64,15 @@ function App() {
       })
       .finally(() => closeAllPopups())
   }
-
-  useEffect(() => {
-    newsApi
-      .getCards()
-      .then((res) => {
-        setCards(res);
-      })
-      .catch(console.log);
-  }, []);
+  /* 
+    useEffect(() => {
+      newsApi
+        .getSavedArticles()
+        .then((res) => {
+          setSavedArticles(res);
+        })
+        .catch(console.log);
+    }, []); */
 
   function logout() {
     localStorage.removeItem("jwt")
@@ -133,8 +136,21 @@ function App() {
     return () => document.removeEventListener("mousedown", closePopupOnRemoteClick);
   }, []);
 
-  function handleSearchFormSubmit() {
-
+  function handleSearchFormSubmit(searchWord) {
+    setIsSearchProcessing(true);
+    newsApi.getSearchedArticles(searchWord)
+      .then((data) => {
+        setSearchedArticles(data.articles);
+        localStorage.setItem("searchResults", JSON.stringify(data.articles));
+        setIsSearchProcessing(false);
+        setSubmitSearch(true);
+        setKeyword(searchWord);
+        localStorage.setItem("keyword", searchWord);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setIsSearchProcessing(false);
+      })
   }
 
   return (
@@ -146,7 +162,11 @@ function App() {
             isLoggedIn={isLoggedIn}
             username={username}
             onLogout={logout}
-            cards={cards}
+            searchedArticles={searchedArticles}
+            onSubmit={handleSearchFormSubmit}
+            isSeacrhProcessing={isSeacrhProcessing}
+            submitSearch={submitSearch}
+            keyword={keyword}
           />} />
           <Route path="/saved-news" element={<SavedNews />} />
           <Route path="/signin" element={<Login

@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import NewsCard from "../NewsCard/NewsCard.js";
-import { api } from "../../utils/NewsApi.js";
+import { newsApi } from "../../utils/NewsApi.js";
 import "../SavedNews/SavedNews.css";
 
 function SavedNews({ code }) {
-    const [cards, setCards] = useState([]);
+    const [savedArticles, setSavedArticles] = useState([]);
 
     useEffect(() => {
-        api
+        newsApi//change to mainApi
             .getCardList()
             .then((res) => {
-                setCards(res);
+                setSavedArticles(res);
             })
             .catch(console.log);
     }, []);
 
-    const cardComponents = cards.map((card) => <NewsCard {...card} key={card.id} />);
+    const cardComponents = savedArticles.map((card) => <NewsCard {...card} key={card.id} />);
 
     return (
         <section className="saved-news">
