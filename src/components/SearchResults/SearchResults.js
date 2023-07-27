@@ -22,7 +22,8 @@ function SearchResults({ searchedArticles }) {
               date={article.publishedAt}
               title={article.title}
               text={article.description}
-              website={article.source.name} />
+              website={article.source.name}
+            />
           )
         })}
       </ul>
