@@ -1,8 +1,14 @@
 import React from "react";
 import "../NewsCard/NewsCard.css";
 
-function NewsCard({ cardImage, date, title, text, website }) {
+function NewsCard({ cardImage, title, text, website }) {
     const [isToolTipVisible, setIsToolTipVisible] = React.useState(false);
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    })
 
     return (
         <div className="card">
@@ -16,7 +22,7 @@ function NewsCard({ cardImage, date, title, text, website }) {
                 </button>
             )}
             <div className="card__container">
-                <p className="card__date">{date}</p>
+                <p className="card__date">{formattedDate}</p>
                 <h2 className="card__title">{title}</h2>
                 <p className="card__text">{text}</p>
                 <p className="card__website">{website}</p>
