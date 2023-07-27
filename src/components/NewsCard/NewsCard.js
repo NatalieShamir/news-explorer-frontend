@@ -2,12 +2,19 @@ import React from "react";
 import "../NewsCard/NewsCard.css";
 
 function NewsCard({ cardImage, date, title, text, website }) {
+    const [isToolTipVisible, setIsToolTipVisible] = React.useState(false);
 
     return (
         <div className="card">
             <img src={cardImage} className="card__image " alt="news card" />
-            <button type="button" className="card__button"></button>
-            <button type="submit" className="card__tooltip">Sign in to save articles</button>
+            <button type="button" className="card__button"
+                onMouseEnter={() => setIsToolTipVisible(true)}
+                onMouseLeave={() => setIsToolTipVisible(false)}>
+            </button>
+            {isToolTipVisible && (
+                <button type="submit" className="card__tooltip">Sign in to save articles
+                </button>
+            )}
             <div className="card__container">
                 <p className="card__date">{date}</p>
                 <h2 className="card__title">{title}</h2>
