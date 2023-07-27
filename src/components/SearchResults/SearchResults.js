@@ -16,7 +16,13 @@ function SearchResults({ searchedArticles }) {
         {""}
         {searchedArticles.slice(0, 3 + showCards).map((article) => {
           return (
-            <NewsCard {...article} key={article._id} />
+            <NewsCard {...article}
+              key={article._id}
+              cardImage={article.urlToImage}
+              date={article.publishedAt}
+              title={article.title}
+              text={article.description}
+              website={article.source.name} />
           )
         })}
       </ul>
