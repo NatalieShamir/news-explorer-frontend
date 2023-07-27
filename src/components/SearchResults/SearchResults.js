@@ -14,9 +14,9 @@ function SearchResults({ searchedArticles }) {
       <h2 className="search-results__heading">Search results</h2>
       <ul className="search-results__card-list">
         {""}
-        {searchedArticles.slice(0, 3 + showCards).map((card) => {
+        {searchedArticles.slice(0, 3 + showCards).map((article) => {
           return (
-            <NewsCard {...card} key={card._id} />
+            <NewsCard {...article} key={article._id} />
           )
         })}
       </ul>

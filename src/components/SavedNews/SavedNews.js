@@ -15,7 +15,7 @@ function SavedNews({ code }) {
             .catch(console.log);
     }, []);
 
-    const cardComponents = savedArticles.map((card) => <NewsCard {...card} key={card.id} />);
+    const cardComponents = savedArticles.map((article) => <NewsCard {...article} key={article._id} />);
 
     return (
         <section className="saved-news">
