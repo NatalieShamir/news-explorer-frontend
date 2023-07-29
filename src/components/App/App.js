@@ -14,6 +14,7 @@ import { Login } from "../Login/Login";
 import { Register } from "../Register/Register";
 import { UserContext } from "../../contexts/CurrentUserContext";
 import { newsApi } from "../../utils/NewsApi";
+import { mainApi } from "../../utils/MainApi";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
   const [submitSearch, setSubmitSearch] = React.useState(false);
   const [keyword, setKeyword] = React.useState(localStorage.getItem("keyword"));
   const navigate = useNavigate();
+  const [savedArticles, setSavedArticles] = React.useState([]);
 
   function register(email, password, username) {
     auth.signup(email, password, username)
@@ -64,15 +66,16 @@ function App() {
       })
       .finally(() => closeAllPopups())
   }
-  /* 
-    useEffect(() => {
-      newsApi
-        .getSavedArticles()
-        .then((res) => {
-          setSavedArticles(res);
-        })
-        .catch(console.log);
-    }, []); */
+
+  useEffect(() => {
+    mainApi
+      .getSavedArticles()
+      .then((res) => {
+        setSavedArticles(res);
+      })
+      .catch(console.log);
+  }, []);
+
 
   function logout() {
     localStorage.removeItem("jwt")
@@ -168,7 +171,8 @@ function App() {
             submitSearch={submitSearch}
             keyword={keyword}
           />} />
-          <Route path="/saved-news" element={<SavedNews />} />
+          <Route path="/saved-news" element={<SavedNews
+            savedArticles={savedArticles} />} />
           <Route path="/signin" element={<Login
             onLogin={login}
             isOpen={isSigninPopupOpen}
