@@ -13,10 +13,10 @@ function SavedNews({ savedArticles, onArticleDelete }) {
         <section className="saved-news">
             <ul className="search-results__card-list">
                 {""}
-                {savedArticles.slice(0, 3 + showCards).map((article) => {
+                {savedArticles.slice(0, 3 + showSavedCards).map((savedArticle) => {
                     return (
-                        <SavedNewsCard {...article}
-                            key={article._id}
+                        <SavedNewsCard {...savedArticle}
+                            key={savedArticle._id}
                             onCardDelete={onArticleDelete}
                         />
                     )

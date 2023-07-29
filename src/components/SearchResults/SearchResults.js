@@ -14,15 +14,15 @@ function SearchResults({ searchedArticles }) {
       <h2 className="search-results__heading">Search results</h2>
       <ul className="search-results__card-list">
         {""}
-        {searchedArticles.slice(0, 3 + showCards).map((article) => {
+        {searchedArticles.slice(0, 3 + showCards).map((searchedArticle) => {
           return (
-            <NewsCard {...article}
-              key={article._id}
-              cardImage={article.urlToImage}
-              date={article.publishedAt}
-              title={article.title}
-              text={article.description}
-              website={article.source.name}
+            <NewsCard {...searchedArticle}
+              key={searchedArticle._id}
+              cardImage={searchedArticle.urlToImage}
+              date={searchedArticle.publishedAt}
+              title={searchedArticle.title}
+              text={searchedArticle.description}
+              website={searchedArticle.source.name}
             />
           )
         })}

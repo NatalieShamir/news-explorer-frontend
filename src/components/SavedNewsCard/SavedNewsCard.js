@@ -1,6 +1,6 @@
 import React from "react";
 
-function SavedNewsCard({ cardImage, title, text, website, onArticleDelete }) {
+function SavedNewsCard({ cardImage, title, text, website, onArticleDelete, savedArticle }) {
     const [isToolTipVisible, setIsToolTipVisible] = React.useState(false);
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString('en-US', {
@@ -11,7 +11,7 @@ function SavedNewsCard({ cardImage, title, text, website, onArticleDelete }) {
 
 
     function handleDeleteClick() {
-        onArticleDelete(article);
+        onArticleDelete(savedArticle);
     }
 
 
