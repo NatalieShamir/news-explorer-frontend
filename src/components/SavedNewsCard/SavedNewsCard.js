@@ -1,6 +1,6 @@
 import React from "react";
 
-function SavedNewsCard({ cardImage, title, text, website }) {
+function SavedNewsCard({ cardImage, title, text, website, onArticleDelete }) {
     const [isToolTipVisible, setIsToolTipVisible] = React.useState(false);
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString('en-US', {
@@ -9,12 +9,19 @@ function SavedNewsCard({ cardImage, title, text, website }) {
         day: 'numeric'
     })
 
+
+    function handleDeleteClick() {
+        onArticleDelete(article);
+    }
+
+
     return (
         <div className="saved-news-card">
             <img src={cardImage} className="saved-news-card__image " alt="saved news card" />
             <button type="button" className="saved-news-card__delete-button"
                 onMouseEnter={() => setIsToolTipVisible(true)}
-                onMouseLeave={() => setIsToolTipVisible(false)}>
+                onMouseLeave={() => setIsToolTipVisible(false)}
+                onClick={handleDeleteClick}>
             </button>
             {isToolTipVisible && (
                 <button type="submit" className="saved-news-card__tooltip">Remove from saved

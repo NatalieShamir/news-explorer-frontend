@@ -11,7 +11,7 @@ class MainApi {
     }
 
     getUserInfo() {
-        return fetch(`${this._baseUrl} + "/users/me"`, {
+        return fetch(`${this._baseUrl}/users/me`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("jwt")}`,
                 "Content-Type": "application/json",
@@ -20,7 +20,7 @@ class MainApi {
     }
 
     getSavedArticles() {
-        return fetch(`${this._baseUrl} + "/articles"`, {
+        return fetch(`${this._baseUrl}/articles`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("jwt")}`,
                 "Content-Type": "application/json",
@@ -29,7 +29,7 @@ class MainApi {
     }
 
     createArticle(article) {
-        return fetch(`${this._baseUrl} + "/articles"`, {
+        return fetch(`${this._baseUrl}/articles`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("jwt")}`,
@@ -40,7 +40,7 @@ class MainApi {
     }
 
     deleteArticle(articleId) {
-        return fetch(`${this._baseUrl} + "/articles/" + articleId`, {
+        return fetch(`${this._baseUrl}/articles/${articleId}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("jwt")}`,

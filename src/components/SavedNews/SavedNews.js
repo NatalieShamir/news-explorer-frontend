@@ -2,7 +2,7 @@ import React from "react";
 import SavedNewsCard from "../SavedNewsCard/SavedNewsCard.js";
 import "../SavedNews/SavedNews.css";
 
-function SavedNews({ savedArticles }) {
+function SavedNews({ savedArticles, onArticleDelete }) {
     const [showSavedCards, setShowSavedCards] = React.useState(0);
 
     function handleShowMoreSavedCards() {
@@ -17,6 +17,7 @@ function SavedNews({ savedArticles }) {
                     return (
                         <SavedNewsCard {...article}
                             key={article._id}
+                            onCardDelete={onArticleDelete}
                         />
                     )
                 })}

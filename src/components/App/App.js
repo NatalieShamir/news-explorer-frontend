@@ -156,6 +156,16 @@ function App() {
       })
   }
 
+  function handleArticleDelete(article) {
+    mainApi
+      .deleteCard(article._id)
+      .then((res) => {
+        const newArticles = savedArticles.filter((item) => item._id !== article._id);
+        setSavedArticles(newArticles);
+      })
+      .catch((err) => console.log(err))
+  }
+
   return (
     <UserContext.Provider value={currentUser}>
       <div className="app">
@@ -172,7 +182,9 @@ function App() {
             keyword={keyword}
           />} />
           <Route path="/saved-news" element={<SavedNews
-            savedArticles={savedArticles} />} />
+            savedArticles={savedArticles}
+            onArticleDelete={handleArticleDelete}
+          />} />
           <Route path="/signin" element={<Login
             onLogin={login}
             isOpen={isSigninPopupOpen}
