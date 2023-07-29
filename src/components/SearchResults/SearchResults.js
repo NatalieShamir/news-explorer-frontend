@@ -5,7 +5,7 @@ import NewsCard from "../NewsCard/NewsCard";
 function SearchResults({ searchedArticles }) {
   const [showCards, setShowCards] = React.useState(0);
 
-  function handleShowMore() {
+  function handleShowMoreCards() {
     setShowCards(showCards + 3);
   }
 
@@ -27,7 +27,7 @@ function SearchResults({ searchedArticles }) {
           )
         })}
       </ul>
-      {showCards < searchedArticles.length && (<button type="button" className="search-results__button" onClick={handleShowMore}>Show more</button>
+      {showCards < searchedArticles.length && (<button type="button" className="search-results__button" onClick={handleShowMoreCards}>Show more</button>
       )}
     </section >
   )
