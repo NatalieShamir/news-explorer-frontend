@@ -1,5 +1,6 @@
 import React from "react";
 import "../NewsCard/NewsCard.css";
+import { UserContext } from "../../contexts/CurrentUserContext";
 
 function NewsCard({ cardImage, title, text, website }) {
     const [isToolTipVisible, setIsToolTipVisible] = React.useState(false);
