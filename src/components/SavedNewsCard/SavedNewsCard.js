@@ -1,39 +1,37 @@
 import React from "react";
+import Card from "../Card/Card";
 
-function SavedNewsCard({ cardImage, title, text, website, onArticleDelete, savedArticle }) {
+
+function SavedNewsCard({ cardImage, title, text, website, onArticleDelete, savedArticle, isLoggedIn }) {
     const [isToolTipVisible, setIsToolTipVisible] = React.useState(false);
-    const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    })
-
 
     function handleDeleteClick() {
         onArticleDelete(savedArticle);
     }
 
-
     return (
-        <div className="saved-news-card">
-            <img src={cardImage} className="saved-news-card__image " alt="saved news card" />
-            <button type="button" className="saved-news-card__delete-button"
-                onMouseEnter={() => setIsToolTipVisible(true)}
-                onMouseLeave={() => setIsToolTipVisible(false)}
-                onClick={handleDeleteClick}>
-            </button>
-            {isToolTipVisible && (
-                <button type="submit" className="saved-news-card__tooltip">Remove from saved
+        <>
+            <Card
+                cardImage={cardImage}
+                title={title}
+                text={text}
+                website={website}
+            >
+                {" "}
+                <button type="button" className="card__button-delete"
+                    onMouseEnter={() => setIsToolTipVisible(true)}
+                    onMouseLeave={() => setIsToolTipVisible(false)}
+                    onClick={handleDeleteClick}>
                 </button>
-            )}
-            <div className="saved-news-card__container">
-                <p className="saved-news-card__date">{formattedDate}</p>
-                <h2 className="saved-news-card__title">{title}</h2>
-                <p className="saved-news-card__text">{text}</p>
-                <p className="saved-news-card__website">{website}</p>
-            </div>
-        </div>
+                {isToolTipVisible && (
+                    <div className="card__tooltip"><span className="card__tooltip-text">Remove from saved</span>
+                    </div>
+                )}
+                {isLoggedIn && (
+                    <div className="card__keyword">{savedArticle.keyword}</div>
+                )}
+            </Card>
+        </>
     )
 }
 
