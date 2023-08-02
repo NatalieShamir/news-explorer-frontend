@@ -15,7 +15,7 @@ import { Register } from "../Register/Register";
 import { UserContext } from "../../contexts/CurrentUserContext";
 import { newsApi } from "../../utils/NewsApi";
 import { mainApi } from "../../utils/MainApi";
-
+import { useCallback } from 'react';
 
 function App() {
 
@@ -68,14 +68,30 @@ function App() {
   }
 
   useEffect(() => {
+    if (!isLoggedIn) {
+      return
+    }
     mainApi
-      .getSavedArticles()
+      .getUserInfo()
       .then((res) => {
-        setSavedArticles(res);
+        setCurrentUser(res.data);
       })
-      .catch(console.log);
-  }, []);
+      .catch((err) => console.log(err))
+  }, [isLoggedIn]);
 
+  const getArticles = useCallback(() => {
+    isLoggedIn &&
+      mainApi
+        .getSavedArticles()
+        .then((res) => {
+          setSavedArticles(res);
+        })
+        .catch(console.log);
+  }, [isLoggedIn]);
+
+  useEffect(() => {
+    getArticles()
+  }, [getArticles]);
 
   function logout() {
     localStorage.removeItem("jwt")
@@ -156,6 +172,29 @@ function App() {
       })
   }
 
+  function handleArticleSave(article) {
+    const isSaved = savedArticles.find((savedArticle) => savedArticle.url === article.url);
+    if (isSaved) {
+      mainApi.deleteArticle(isSaved._id)
+        .then(() => getArticles())
+        .catch((err) => console.log(err))
+    }
+
+    else {
+      mainApi.createArticle({
+        keyword: article.keyword,
+        cardImage: article.urlToImage,
+        date: article.publishedAt,
+        title: article.title,
+        text: article.description,
+        website: article.source.name,
+        link: article.url
+      })
+        .then(() => getArticles())
+        .catch((err) => console.log(err))
+    }
+  }
+
   function handleArticleDelete(article) {
     mainApi
       .deleteCard(article._id)
@@ -180,11 +219,15 @@ function App() {
             isSeacrhProcessing={isSeacrhProcessing}
             submitSearch={submitSearch}
             keyword={keyword}
-          />} />
+            onArticleSave={handleArticleSave}
+          />}
+          />
           <Route path="/saved-news" element={<SavedNews
             savedArticles={savedArticles}
             onArticleDelete={handleArticleDelete}
-          />} />
+            isLoggedIn={isLoggedIn}
+          />}
+          />
           <Route path="/signin" element={<Login
             onLogin={login}
             isOpen={isSigninPopupOpen}
