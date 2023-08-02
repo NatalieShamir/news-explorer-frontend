@@ -8,7 +8,7 @@ import SearchResults from "../SearchResults/SearchResults";
 import Preloader from "../Preloader/Preloader";
 import NotFound from "../NotFound/NotFound";
 
-function Main({ onSigninClick, isLoggedIn, username, onLogout, onSubmit, isSeacrhProcessing, submitSearch, searchedArticles }) {
+function Main({ onSigninClick, isLoggedIn, username, onLogout, onSubmit, isSeacrhProcessing, submitSearch, searchedArticles, keyword, onArticleSave }) {
     const location = useLocation();
     return (
         <>
@@ -30,7 +30,12 @@ function Main({ onSigninClick, isLoggedIn, username, onLogout, onSubmit, isSeacr
                 <NotFound />
                 :
                 (submitSearch && <SearchResults
-                    searchedArticles={searchedArticles} />)
+                    searchedArticles={searchedArticles}
+                    keyword={keyword}
+                    onArticleSave={onArticleSave}
+                    isLoggedIn={isLoggedIn}
+                />
+                )
             }
             <About />
         </>
