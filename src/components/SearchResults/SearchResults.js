@@ -1,8 +1,8 @@
 import React from "react";
 import "../SearchResults/SearchResults.css"
-import NewsCard from "../NewsCard/NewsCard";
+import ResultsCard from "../ResultsCard/ResultsCard";
 
-function SearchResults({ searchedArticles }) {
+function SearchResults({ searchedArticles, onArticleSave, isLoggedIn }) {
   const [showCards, setShowCards] = React.useState(0);
 
   function handleShowMoreCards() {
@@ -13,16 +13,18 @@ function SearchResults({ searchedArticles }) {
     <section className="search-results">
       <h2 className="search-results__heading">Search results</h2>
       <ul className="search-results__card-list">
-        {""}
         {searchedArticles.slice(0, 3 + showCards).map((searchedArticle) => {
           return (
-            <NewsCard {...searchedArticle}
+            <ResultsCard {...searchedArticle}
               key={searchedArticle._id}
+              searchedArticle={searchedArticle}
               cardImage={searchedArticle.urlToImage}
               date={searchedArticle.publishedAt}
               title={searchedArticle.title}
               text={searchedArticle.description}
               website={searchedArticle.source.name}
+              onArticleSave={onArticleSave}
+              isLoggedIn={isLoggedIn}
             />
           )
         })}
