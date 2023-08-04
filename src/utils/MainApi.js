@@ -51,5 +51,5 @@ class MainApi {
 }
 
 export const mainApi = new MainApi({
-    baseUrl: "https://api.natalie.fr.to",
+    baseUrl: "https://api.news-explorer.my.to",
 }); 
