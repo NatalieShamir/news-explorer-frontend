@@ -1,5 +1,6 @@
 // hook for form control and form validation
-import React from "react";
+import React, { useCallback } from "react";
+
 export function useFormWithValidation() {
     const [values, setValues] = React.useState({});
     const [errors, setErrors] = React.useState({});
@@ -14,5 +15,14 @@ export function useFormWithValidation() {
         setIsValid(target.closest("form").checkValidity());
     };
 
-    return { values, handleChange, errors, isValid };
+    const resetForm = useCallback(
+        (newValues = {}, newErrors = {}, newIsValid = false) => {
+            setValues(newValues);
+            setErrors(newErrors);
+            setIsValid(newIsValid);
+        },
+        [setValues, setErrors, setIsValid]
+    );
+
+    return { values, handleChange, setValues, resetForm, errors, isValid };
 }
