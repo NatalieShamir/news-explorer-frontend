@@ -5,11 +5,12 @@ import "../PopupWithForm/PopupWithForm.css";
 import { useFormWithValidation } from '../Hooks/useFormWithValidation';
 
 function Register({ onRegister, isOpen, onClose, onSigninClick }) {
-    const { values, handleChange, errors, isValid } = useFormWithValidation();
+    const { values, handleChange, resetForm, errors, isValid } = useFormWithValidation();
 
     const handleRegister = (e) => {
         e.preventDefault();
         onRegister(values);
+        resetForm();
     }
 
     return (
@@ -33,7 +34,7 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                             id="email-input"
                             className="popup__form-input"
                             placeholder="Enter email"
-                            value={values.email || ""}
+                            value={values.email}
                             onChange={handleChange}
                             required
                         />
@@ -47,7 +48,7 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                             id="password-input"
                             className="popup__form-input"
                             placeholder="Enter password"
-                            value={values.password || ""}
+                            value={values.password}
                             onChange={handleChange}
                             required
                         />
@@ -61,7 +62,7 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                             id="username-input"
                             className="popup__form-input"
                             placeholder="Enter your username"
-                            value={values.username || ""}
+                            value={values.username}
                             onChange={handleChange}
                             required
                         />

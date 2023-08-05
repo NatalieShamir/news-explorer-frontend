@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 import { useFormWithValidation } from '../Hooks/useFormWithValidation';
 
 function Login({ onLogin, isOpen, onClose, onSignupClick }) {
-    const { values, handleChange, errors, isValid } = useFormWithValidation();
+    const { values, handleChange, resetForm, errors, isValid } = useFormWithValidation();
 
     const handleLogin = (e) => {
         e.preventDefault();
         onLogin(values);
+        resetForm();
     }
 
     return (
@@ -33,7 +34,7 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
                             id="email-input"
                             className="popup__form-input"
                             placeholder="Enter email"
-                            value={values.email || ""}
+                            value={values.email}
                             onChange={handleChange}
                             required
                         />
@@ -46,7 +47,7 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
                             id="password-input"
                             className="popup__form-input"
                             placeholder="Enter password"
-                            value={values.password || ""}
+                            value={values.password}
                             onChange={handleChange}
                             required
                         />
