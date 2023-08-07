@@ -235,10 +235,11 @@ function App() {
             onArticleSave={handleArticleSave}
           />}
           />
-          <Route path="/saved-news" element={<Protected savedArticles={savedArticles}
-            onArticleDelete={handleArticleDelete}
-            isLoggedIn={isLoggedIn} ><SavedNews />
-          </Protected>
+          <Route path="/saved-news" element={
+            <Protected savedArticles={savedArticles}
+              onArticleDelete={handleArticleDelete}
+              isLoggedIn={isLoggedIn} ><SavedNews />
+            </Protected>
           }
           />
         </Routes>
