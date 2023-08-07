@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import {
   Route,
   Routes,
-  useNavigate
+  useNavigate,
 } from 'react-router-dom';
 import "../App/App.css";
 import Main from "../Main/Main";
@@ -16,6 +16,7 @@ import { UserContext } from "../../contexts/CurrentUserContext";
 import { newsApi } from "../../utils/NewsApi";
 import { mainApi } from "../../utils/MainApi";
 import { useCallback } from 'react';
+import Protected from "../Protected/Protected";
 
 function App() {
 
@@ -208,6 +209,18 @@ function App() {
   return (
     <UserContext.Provider value={currentUser}>
       <div className="app">
+        <Login
+          onLogin={login}
+          isOpen={isSigninPopupOpen}
+          onClose={closeAllPopups}
+          onSignupClick={handleSwitchToSignup}
+        />
+        <Register
+          onRegister={register}
+          isOpen={isSignupPopupOpen}
+          onClose={closeAllPopups}
+          onSigninClick={handleSwitchToSignin}
+        />
         <Routes>
           <Route path="/" element={<Main
             onSigninClick={handleOpenSigninClick}
@@ -222,25 +235,11 @@ function App() {
             onArticleSave={handleArticleSave}
           />}
           />
-          <Route path="/saved-news" element={<SavedNews
-            savedArticles={savedArticles}
+          <Route path="/saved-news" element={<Protected savedArticles={savedArticles}
             onArticleDelete={handleArticleDelete}
-            isLoggedIn={isLoggedIn}
-          />}
-          />
-          <Route path="/signin" element={<Login
-            onLogin={login}
-            isOpen={isSigninPopupOpen}
-            onClose={closeAllPopups}
-            onSignupClick={handleSwitchToSignup}
-          />}
-          />
-          <Route path="/signup" element={<Register
-            onRegister={register}
-            isOpen={isSignupPopupOpen}
-            onClose={closeAllPopups}
-            onSigninClick={handleSwitchToSignin}
-          />}
+            isLoggedIn={isLoggedIn} ><SavedNews />
+          </Protected>
+          }
           />
         </Routes>
         <RegistrationSuccessful
@@ -249,8 +248,8 @@ function App() {
         />
         <Footer />
       </div>
-    </UserContext.Provider>
-  );
+    </UserContext.Provider >
+  )
 }
 
 export default App;
