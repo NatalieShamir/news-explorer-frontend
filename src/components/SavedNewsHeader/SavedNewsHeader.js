@@ -4,9 +4,11 @@ import "../SavedNewsHeader/SavedNewsHeader.css";
 import { UserContext } from "../../contexts/CurrentUserContext";
 
 
-function SavedNewsHeader() {
+function SavedNewsHeader({ savedArticles }) {
     const currentUser = useContext(UserContext);
     const savedArticlesNumber = localStorage.length;
+    const keywordsArray = savedArticles.map((article) => article.keyword);
+
     return (
         <>
             <section className="saved-news-header">
