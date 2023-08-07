@@ -53,7 +53,7 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
                         />
                         {!isValid && <span id="password-input-error" className="popup__form-error">{errors.password}</span>}
                     </fieldset>
-                    <button type="submit" className="popup__form-button popup__form-button_disabled">
+                    <button type="submit" className={isValid ? "popup__form-button" : "popup__form-button popup__form-button_disabled"} >
                         Sign in
                     </button>
                     <div className="popup__form-link-container">
