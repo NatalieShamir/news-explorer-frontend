@@ -14,7 +14,7 @@ function SavedNews({ savedArticles, onArticleDelete }) {
     return (
         <>
             <Header />
-            <SavedNewsHeader />
+            <SavedNewsHeader savedArticles={savedArticles} />
             <section className="saved-news">
                 <ul className="saved-news__card-list">
                     {savedArticles.map((savedArticle) => {
