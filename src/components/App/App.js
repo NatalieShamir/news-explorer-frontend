@@ -236,13 +236,25 @@ function App() {
           />}
           />
           <Route path="/saved-news" element={
-            <Protected savedArticles={savedArticles}
+            <Protected redirectPath="/" savedArticles={savedArticles}
               onArticleDelete={handleArticleDelete}
               isLoggedIn={isLoggedIn} ><SavedNews />
             </Protected>
           }
           />
         </Routes>
+        <Login
+          onLogin={login}
+          isOpen={isSigninPopupOpen}
+          onClose={closeAllPopups}
+          onSignupClick={handleSwitchToSignup}
+        />
+        <Register
+          onRegister={register}
+          isOpen={isSignupPopupOpen}
+          onClose={closeAllPopups}
+          onSigninClick={handleSwitchToSignin}
+        />
         <RegistrationSuccessful
           isOpen={isRegistrationSuccessfulOpen}
           onClose={closeAllPopups}
