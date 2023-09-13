@@ -20,6 +20,6 @@ class NewsApi {
 }
 
 export const newsApi = new NewsApi({
-  baseUrl: "https://newsapi.org/v2",
+  baseUrl: "https://nomoreparties.co/news/v2",
   apiKey: "8b6a35e7b7c1456db4c96ab984919f90"
 });
