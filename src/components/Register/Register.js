@@ -25,7 +25,7 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                     aria-label="close"
                     className="popup__close-button-signup"
                 />
-                <form name="signin" className="popup__form" onSubmit={handleRegister}>
+                <form name="signup" className="popup__form" onSubmit={handleRegister}>
                     <h3 className="popup__form-title">Sign up</h3>
                     < fieldset className="popup__form-fieldset" >
                         <label htmlFor="email" className="popup__form-label">Email</label>
