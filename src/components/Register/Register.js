@@ -9,7 +9,7 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        onRegister(values);
+        onRegister(values.email, values.password, values.username);
         resetForm();
     }
 
@@ -30,8 +30,8 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                     < fieldset className="popup__form-fieldset" >
                         <label htmlFor="email" className="popup__form-label">Email</label>
                         <input
+                            name="email"
                             type="email"
-                            id="email-input"
                             className="popup__form-input"
                             placeholder="Enter email"
                             value={values.email}
@@ -43,9 +43,9 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                     <fieldset className="popup__form-fieldset">
                         <label htmlFor="password" className="popup__form-label">Password</label>
                         <input
+                            name="password"
                             type="password"
                             minLength="8"
-                            id="password-input"
                             className="popup__form-input"
                             placeholder="Enter password"
                             value={values.password}
@@ -57,9 +57,9 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                     < fieldset className="popup__form-fieldset" >
                         <label htmlFor="username" className="popup__form-label">Username</label>
                         <input
+                            name="username"
                             type="text"
                             minLength="5"
-                            id="username-input"
                             className="popup__form-input"
                             placeholder="Enter your username"
                             value={values.username}

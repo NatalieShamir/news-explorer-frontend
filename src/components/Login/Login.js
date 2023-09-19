@@ -31,7 +31,6 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
                         <label htmlFor="email" className="popup__form-label">Email</label>
                         <input
                             type="email"
-                            id="email-input"
                             className="popup__form-input"
                             placeholder="Enter email"
                             value={values.email}
@@ -44,7 +43,6 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
                         <label htmlFor="password" className="popup__form-label">Password</label>
                         <input
                             type="password"
-                            id="password-input"
                             className="popup__form-input"
                             placeholder="Enter password"
                             value={values.password}
