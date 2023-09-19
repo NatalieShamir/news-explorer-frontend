@@ -16,7 +16,7 @@ function SearchResults({ searchedArticles, onArticleSave, isLoggedIn }) {
         {searchedArticles.slice(0, 3 + showCards).map((searchedArticle) => {
           return (
             <ResultsCard {...searchedArticle}
-              key={searchedArticle._id}
+              key={searchedArticle.id}
               searchedArticle={searchedArticle}
               cardImage={searchedArticle.urlToImage}
               date={searchedArticle.publishedAt}
