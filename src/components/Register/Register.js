@@ -36,6 +36,7 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                             placeholder="Enter email"
                             value={values.email}
                             onChange={handleChange}
+                            autoComplete="off"
                             required
                         />
                         {!isValid && <span id="email-input-error" className="popup__form-error">{errors.email}</span>}
@@ -50,6 +51,7 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                             placeholder="Enter password"
                             value={values.password}
                             onChange={handleChange}
+                            autoComplete="current-password"
                             required
                         />
                         {!isValid && <span id="password-input-error" className="popup__form-error">{errors.password}</span>}

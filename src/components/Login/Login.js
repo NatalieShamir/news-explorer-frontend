@@ -9,7 +9,7 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        onLogin(values);
+        onLogin(values.email, values.password);
         resetForm();
     }
 
@@ -30,11 +30,13 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
                     < fieldset className="popup__form-fieldset" >
                         <label htmlFor="email" className="popup__form-label">Email</label>
                         <input
+                            name="email"
                             type="email"
                             className="popup__form-input"
                             placeholder="Enter email"
                             value={values.email}
                             onChange={handleChange}
+                            autoComplete="on"
                             required
                         />
                         {!isValid && <span id="email-input-error" className="popup__form-error">{errors.email}</span>}
@@ -42,11 +44,13 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
                     <fieldset className="popup__form-fieldset">
                         <label htmlFor="password" className="popup__form-label">Password</label>
                         <input
+                            name="password"
                             type="password"
                             className="popup__form-input"
                             placeholder="Enter password"
                             value={values.password}
                             onChange={handleChange}
+                            autoComplete="current-password"
                             required
                         />
                         {!isValid && <span id="password-input-error" className="popup__form-error">{errors.password}</span>}
