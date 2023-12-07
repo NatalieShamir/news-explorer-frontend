@@ -34,6 +34,9 @@ function App() {
   const [keyword, setKeyword] = React.useState(localStorage.getItem("keyword"));
   const navigate = useNavigate();
   const [savedArticles, setSavedArticles] = React.useState([]);
+  /* 
+    const result = Array.isArray(savedArticles);
+    console.log("result " + (result)); */
 
   function register(email, password, username) {
     auth.signup(email, password, username)
@@ -98,7 +101,7 @@ function App() {
     localStorage.removeItem("jwt")
     setIsLoggedIn(false)
     setUsername("")
-    navigate("/signin")
+    navigate("/")
   }
 
   useEffect(() => {
@@ -174,7 +177,7 @@ function App() {
   }
 
   function handleArticleSave(article) {
-    const isSaved = savedArticles.find((savedArticle) => savedArticle.url === article.url);
+    const isSaved = [savedArticles].find((savedArticle) => savedArticle.url === article.url);
     if (isSaved) {
       mainApi.deleteArticle(isSaved._id)
         .then(() => getArticles())
@@ -236,9 +239,9 @@ function App() {
           />}
           />
           <Route path="/saved-news" element={
-            <Protected redirectPath="/" savedArticles={savedArticles}
+            <Protected redirectPath="/"
               onArticleDelete={handleArticleDelete}
-              isLoggedIn={isLoggedIn} ><SavedNews />
+              isLoggedIn={isLoggedIn} ><SavedNews savedArticles={savedArticles} />
             </Protected>
           }
           />
