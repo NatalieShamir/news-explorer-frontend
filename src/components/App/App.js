@@ -26,7 +26,7 @@ function App() {
     React.useState(false);
   const [isRegistrationSuccessfulOpen, setIsRegistrationSuccessfulOpen] = React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [username, setUsername] = React.useState({} || "");
+  const [name, setname] = React.useState({} || "");
   const [currentUser, setCurrentUser] = React.useState({});
   const [searchedArticles, setSearchedArticles] = React.useState((JSON.parse(localStorage.getItem("searchResults"))));
   const [isSeacrhProcessing, setIsSearchProcessing] = React.useState(false);
@@ -38,8 +38,8 @@ function App() {
     const result = Array.isArray(savedArticles);
     console.log("result " + (result)); */
 
-  function register(email, password, username) {
-    auth.signup(email, password, username)
+  function register(email, password, name) {
+    auth.signup(email, password, name)
       .then((res) => {
         console.log(res._id)
       })
@@ -57,7 +57,7 @@ function App() {
       .then(res => {
         if (res.token) {
           setIsLoggedIn(true)
-          setUsername(username)
+          setname(name)
           localStorage.setItem("jwt", res.token)
           navigate("/")
         }
@@ -100,7 +100,7 @@ function App() {
   function logout() {
     localStorage.removeItem("jwt")
     setIsLoggedIn(false)
-    setUsername("")
+    setname("")
     navigate("/")
   }
 
@@ -110,8 +110,8 @@ function App() {
     if (token) {
       auth.checkToken(token)
         .then(res => {
-          const { data: { username } } = res
-          setUsername(username)
+          const { data: { name } } = res
+          setname(name)
           setIsLoggedIn(true);
           navigate("/")
         })
@@ -228,7 +228,7 @@ function App() {
           <Route path="/" element={<Main
             onSigninClick={handleOpenSigninClick}
             isLoggedIn={isLoggedIn}
-            username={username}
+            name={name}
             onLogout={logout}
             searchedArticles={searchedArticles}
             onSubmit={handleSearchFormSubmit}
