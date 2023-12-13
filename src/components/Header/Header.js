@@ -6,7 +6,7 @@ import Navigation from "../Navigation/Navigation";
 import hamburgerMenuOpen from "../../images/menu.svg";
 import hamburgerMenuClose from "../../images/close-min.svg";
 
-function Header({ onSigninClick, isLoggedIn, username, onLogout }) {
+function Header({ onSigninClick, isLoggedIn, name, onLogout }) {
     const [isNavOpen, setIsNavOpen] = React.useState(false);
 
     function handleToggleMenu() {
@@ -32,7 +32,7 @@ function Header({ onSigninClick, isLoggedIn, username, onLogout }) {
                 isNavOpen={isNavOpen}
                 onSigninClick={onSigninClick}
                 isLoggedIn={isLoggedIn}
-                username={username}
+                name={name}
                 onLogout={onLogout}
             />
         </header >

@@ -7,13 +7,13 @@ function checkResponse(res) {
     return Promise.reject(`Error ${res.status}`);
 }
 
-export const signup = (email, password, username) => {
+export const signup = (email, password, name) => {
     return fetch(`${BASE_URL}/signup`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, password, username })
+        body: JSON.stringify({ email, password, name })
     })
         .then(
             checkResponse

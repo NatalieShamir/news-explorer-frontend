@@ -7,14 +7,14 @@ import SearchResults from "../SearchResults/SearchResults";
 import Preloader from "../Preloader/Preloader";
 import NotFound from "../NotFound/NotFound";
 
-function Main({ onSigninClick, isLoggedIn, username, onLogout, onSubmit, isSeacrhProcessing, submitSearch, searchedArticles, keyword, onArticleSave }) {
+function Main({ onSigninClick, isLoggedIn, name, onLogout, onSubmit, isSeacrhProcessing, submitSearch, searchedArticles, keyword, onArticleSave }) {
     return (
         <>
             <Parent>
                 <Header
                     onSigninClick={onSigninClick}
                     isLoggedIn={isLoggedIn}
-                    username={username}
+                    name={name}
                     onLogout={onLogout}
                 />
                 <SearchForm

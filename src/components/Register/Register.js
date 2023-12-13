@@ -9,7 +9,7 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        onRegister(values.email, values.password, values.username);
+        onRegister(values.email, values.password, values.name);
         resetForm();
     }
 
@@ -57,18 +57,18 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                         {!isValid && <span id="password-input-error" className="popup__form-error">{errors.password}</span>}
                     </fieldset>
                     < fieldset className="popup__form-fieldset" >
-                        <label htmlFor="username" className="popup__form-label">Username</label>
+                        <label htmlFor="name" className="popup__form-label">name</label>
                         <input
-                            name="username"
+                            name="name"
                             type="text"
                             minLength="5"
                             className="popup__form-input"
-                            placeholder="Enter your username"
-                            value={values.username}
+                            placeholder="Enter your name"
+                            value={values.name}
                             onChange={handleChange}
                             required
                         />
-                        {!isValid && <span id="username-input-error" className="popup__form-error">{errors.username}</span>}
+                        {!isValid && <span id="name-input-error" className="popup__form-error">{errors.name}</span>}
                     </fieldset >
                     <button type="submit" className="popup__form-button">
                         Sign up
