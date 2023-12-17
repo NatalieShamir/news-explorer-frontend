@@ -57,13 +57,13 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                         {!isValid && <span id="password-input-error" className="popup__form-error">{errors.password}</span>}
                     </fieldset>
                     < fieldset className="popup__form-fieldset" >
-                        <label htmlFor="name" className="popup__form-label">name</label>
+                        <label htmlFor="name" className="popup__form-label">Username</label>
                         <input
                             name="name"
                             type="text"
                             minLength="5"
                             className="popup__form-input"
-                            placeholder="Enter your name"
+                            placeholder="Enter your username"
                             value={values.name}
                             onChange={handleChange}
                             required
