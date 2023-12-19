@@ -1,7 +1,6 @@
 import React from "react";
 import "../SearchResults/SearchResults.css"
 import ResultsCard from "../ResultsCard/ResultsCard";
-import { date } from "joi";
 
 function SearchResults({ searchedArticles, onArticleSave, isLoggedIn }) {
   const [showCards, setShowCards] = React.useState(0);
