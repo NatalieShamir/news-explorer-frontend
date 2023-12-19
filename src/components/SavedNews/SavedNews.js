@@ -4,7 +4,7 @@ import "../SavedNews/SavedNews.css";
 import Header from "../Header/Header.js";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader.js";
 
-function SavedNews({ savedArticles, onArticleDelete }) {
+function SavedNews({ savedArticles, onArticleDelete, isLoggedIn }) {
     const [showSavedCards, setShowSavedCards] = React.useState(0);
 
     function handleShowMoreSavedCards() {
@@ -20,8 +20,14 @@ function SavedNews({ savedArticles, onArticleDelete }) {
                     {savedArticles.map((savedArticle) => {
                         return (
                             <SavedNewsCard
-                                {...savedArticle}
-                                key={savedArticle._id}
+                                savedArticle={savedArticle}
+                                key={savedArticle.title + savedArticle.publishedAt}
+                                cardImage={savedArticle.urlToImage}
+                                date={savedArticle.publishedAt}
+                                title={savedArticle.title}
+                                text={savedArticle.description}
+                                website={savedArticle.source.name}
+                                isLoggedIn={isLoggedIn}
                                 onCardDelete={onArticleDelete}
                             />
                         )
