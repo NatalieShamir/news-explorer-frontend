@@ -50,6 +50,4 @@ class MainApi {
     }
 }
 
-export const mainApi = new MainApi({
-    baseUrl: "https://api.news-explorer.my.to",
-}); 
+export const mainApi = new MainApi("https://api.news-explorer.my.to"); 
