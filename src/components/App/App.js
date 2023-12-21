@@ -34,9 +34,7 @@ function App() {
   const [keyword, setKeyword] = React.useState(localStorage.getItem("keyword"));
   const navigate = useNavigate();
   const [savedArticles, setSavedArticles] = React.useState([]);
-  /* 
-    const result = Array.isArray(savedArticles);
-    console.log("result " + (result)); */
+
 
   function register(email, password, name) {
     auth.signup(email, password, name)
@@ -78,7 +76,7 @@ function App() {
     mainApi
       .getUserInfo()
       .then((res) => {
-        setCurrentUser(res.data);
+        res.json().then(body => setCurrentUser(body));
       })
       .catch((err) => console.log(err))
   }, [isLoggedIn]);
@@ -88,7 +86,7 @@ function App() {
       mainApi
         .getSavedArticles()
         .then((res) => {
-          setSavedArticles(res);
+          res.json().then(body => setSavedArticles(body))
         })
         .catch(console.log);
   }, [isLoggedIn]);
@@ -225,23 +223,25 @@ function App() {
           onSigninClick={handleSwitchToSignin}
         />
         <Routes>
-          <Route path="/" element={<Main
-            onSigninClick={handleOpenSigninClick}
-            isLoggedIn={isLoggedIn}
-            name={name}
-            onLogout={logout}
-            searchedArticles={searchedArticles}
-            onSubmit={handleSearchFormSubmit}
-            isSeacrhProcessing={isSeacrhProcessing}
-            submitSearch={submitSearch}
-            keyword={keyword}
-            onArticleSave={handleArticleSave}
-          />}
+          <Route path="/" element={
+            <Main
+              onSigninClick={handleOpenSigninClick}
+              isLoggedIn={isLoggedIn}
+              name={name}
+              onLogout={logout}
+              searchedArticles={searchedArticles}
+              onSubmit={handleSearchFormSubmit}
+              isSeacrhProcessing={isSeacrhProcessing}
+              submitSearch={submitSearch}
+              keyword={keyword}
+              onArticleSave={handleArticleSave}
+            />}
           />
-          <Route path="/saved-news" element={
-            <Protected redirectPath="/"
-              onArticleDelete={handleArticleDelete}
-              isLoggedIn={isLoggedIn} ><SavedNews savedArticles={savedArticles} />
+          <Route path="/articles" element={
+            <Protected isLoggedIn={isLoggedIn} >
+              <SavedNews
+                savedArticles={savedArticles}
+                onArticleDelete={handleArticleDelete} />
             </Protected>
           }
           />
