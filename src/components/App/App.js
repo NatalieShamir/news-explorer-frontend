@@ -163,8 +163,9 @@ function App() {
     setIsSearchProcessing(true);
     newsApi.getSearchedArticles(searchWord)
       .then((data) => {
-        setSearchedArticles(data.articles);
-        localStorage.setItem("searchResults", JSON.stringify(data.articles));
+        let articles = data.articles.map(article => article = { ...article, keyword: searchWord });
+        setSearchedArticles(articles);
+        localStorage.setItem("searchResults", JSON.stringify(articles));
         setIsSearchProcessing(false);
         setSubmitSearch(true);
         setKeyword(searchWord);
@@ -183,15 +184,14 @@ function App() {
         .then(() => getArticles())
         .catch((err) => console.log(err))
     }
-
     else {
       mainApi.createArticle({
         keyword: article.keyword,
-        cardImage: article.urlToImage,
+        image: article.urlToImage,
         date: article.publishedAt,
         title: article.title,
         text: article.description,
-        website: article.source.name,
+        source: article.source.name,
         link: article.url
       })
         .then(() => getArticles())
