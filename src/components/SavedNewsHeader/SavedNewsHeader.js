@@ -1,11 +1,10 @@
 import React from "react";
-import { useContext } from "react";
 import "../SavedNewsHeader/SavedNewsHeader.css";
 import { UserContext } from "../../contexts/CurrentUserContext";
 
 function SavedNewsHeader({ savedArticles }) {
 
-    const currentUser = useContext(UserContext);
+    const currentUser = React.useContext(UserContext);
     const savedArticlesNumber = savedArticles.length;
     const keywordsArray = savedArticles.map((article) => article.keyword);
 
