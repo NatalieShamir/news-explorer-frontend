@@ -15,7 +15,7 @@ function Navigation({ isNavOpen, onSigninClick, isLoggedIn, name, onLogout }) {
                         </Link>
                     </li >
                     <li className="nav__item">
-                        <Link to={"/saved-news"} className="nav__articles">Saved articles</Link>
+                        <Link to={"/articles"} className="nav__articles">Saved articles</Link>
                     </li>
                     <li className="nav__item">
                         <button className="nav__button-signout" onClick={onLogout}>
