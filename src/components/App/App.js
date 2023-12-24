@@ -237,7 +237,7 @@ function App() {
               onArticleSave={handleArticleSave}
             />}
           />
-          <Route path="/articles" element={
+          <Route path="/saved-news" element={
             <Protected isLoggedIn={isLoggedIn} >
               <SavedNews
                 savedArticles={savedArticles}
@@ -246,18 +246,6 @@ function App() {
           }
           />
         </Routes>
-        <Login
-          onLogin={login}
-          isOpen={isSigninPopupOpen}
-          onClose={closeAllPopups}
-          onSignupClick={handleSwitchToSignup}
-        />
-        <Register
-          onRegister={register}
-          isOpen={isSignupPopupOpen}
-          onClose={closeAllPopups}
-          onSigninClick={handleSwitchToSignin}
-        />
         <RegistrationSuccessful
           isOpen={isRegistrationSuccessfulOpen}
           onClose={closeAllPopups}
