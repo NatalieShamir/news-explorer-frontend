@@ -10,12 +10,12 @@ function Navigation({ isNavOpen, onSigninClick, isLoggedIn, name, onLogout }) {
             {isLoggedIn ? (
                 <ul className="nav__items">
                     <li className="nav__item">
-                        <Link to={"/"} className="nav__home">
+                        <Link to="/" className="nav__home">
                             Home
                         </Link>
                     </li >
                     <li className="nav__item">
-                        <Link to={"/articles"} className="nav__articles">Saved articles</Link>
+                        <Link to="/saved-news" className="nav__articles">Saved articles</Link>
                     </li>
                     <li className="nav__item">
                         <button className="nav__button-signout" onClick={onLogout}>
@@ -32,7 +32,7 @@ function Navigation({ isNavOpen, onSigninClick, isLoggedIn, name, onLogout }) {
             ) : (
                 <ul className="nav__items">
                     <li className="nav__item">
-                        <Link to={"/"} className="nav__home">
+                        <Link to="/" className="nav__home">
                             Home
                         </Link>
                     </li >
