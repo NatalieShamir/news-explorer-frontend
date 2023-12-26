@@ -210,6 +210,12 @@ function App() {
   return (
     <UserContext.Provider value={currentUser}>
       <div className="app">
+        <Login
+          onLogin={login}
+          isOpen={isSigninPopupOpen}
+          onClose={closeAllPopups}
+          onSignupClick={handleSwitchToSignup}
+        />
         <Register
           onRegister={register}
           isOpen={isSignupPopupOpen}
@@ -217,15 +223,6 @@ function App() {
           onSigninClick={handleSwitchToSignin}
         />
         <Routes>
-          <Route path="/signin" element={
-            <Login
-              onLogin={login}
-              isOpen={isSigninPopupOpen}
-              onClose={closeAllPopups}
-              onSignupClick={handleSwitchToSignup}
-            />
-          }
-          />
           <Route path="/" element={
             <Main
               onSigninClick={handleOpenSigninClick}
