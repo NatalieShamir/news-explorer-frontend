@@ -199,7 +199,7 @@ function App() {
 
   function handleArticleDelete(article) {
     mainApi
-      .deleteCard(article._id)
+      .deleteArticle(article._id)
       .then((res) => {
         const newArticles = savedArticles.filter((item) => item._id !== article._id);
         setSavedArticles(newArticles);
