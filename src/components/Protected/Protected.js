@@ -1,7 +1,7 @@
-import { Navigate } from 'react-router-dom'
+import { Navigate } from "react-router-dom";
 function Protected({ isLoggedIn, children }) {
     if (!isLoggedIn) {
-        return <Navigate to="/signin" replace />
+        return <Navigate to="/" />
     }
     return children
 }
