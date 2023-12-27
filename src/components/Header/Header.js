@@ -17,7 +17,7 @@ function Header({ onSigninClick, isLoggedIn, name, onLogout }) {
 
         <header className={isNavOpen ? "header_hamburger_menu_open" : "header"}>
             <div className="header__container">
-                <Link to={"/"} className="header__logo">
+                <Link to="/" className="header__logo">
                     <img
                         className="header__logo-image"
                         src={headerLogo}

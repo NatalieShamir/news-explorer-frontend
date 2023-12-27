@@ -20,7 +20,7 @@ export default function Footer() {
                 &#169; {new Date().getFullYear()} Supersite, Powered by News API</p>
             <div className="footer__container">
                 <div className="footer__container-word-items">
-                    <Link to={"/"} className="footer__home">
+                    <Link to="/" className="footer__home">
                         Home
                     </Link>
                     <button className="footer__button-practicum" onClick={() => handlePracticumClick('https://tripleten.com/')}>
