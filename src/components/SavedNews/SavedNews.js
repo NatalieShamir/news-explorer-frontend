@@ -30,7 +30,7 @@ function SavedNews({ savedArticles, onArticleDelete, isLoggedIn, name }) {
                                 text={savedArticle.description}
                                 website={savedArticle.source.name}
                                 isLoggedIn={isLoggedIn}
-                                onCardDelete={onArticleDelete}
+                                onArticleDelete={onArticleDelete}
                             />
                         )
                     })}
