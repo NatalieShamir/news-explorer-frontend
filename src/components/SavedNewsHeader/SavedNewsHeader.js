@@ -35,8 +35,6 @@ function SavedNewsHeader({ savedArticles, name }) {
 
     if (keywordsDescending.length > 2) {
         displayKeywords = keywordsShown + `\u0020 and ${remainingKeywordsCount} other`;
-    } else {
-        displayKeywords = keywordsShown;
     }
 
     return (
