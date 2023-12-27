@@ -4,7 +4,7 @@ import "../SavedNews/SavedNews.css";
 import Header from "../Header/Header.js";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader.js";
 
-function SavedNews({ savedArticles, onArticleDelete, isLoggedIn }) {
+function SavedNews({ savedArticles, onArticleDelete, isLoggedIn, name }) {
     const [showSavedCards, setShowSavedCards] = React.useState(0);
 
     function handleShowMoreSavedCards() {
@@ -14,7 +14,9 @@ function SavedNews({ savedArticles, onArticleDelete, isLoggedIn }) {
     return (
         <>
             <Header />
-            <SavedNewsHeader savedArticles={savedArticles} />
+            <SavedNewsHeader savedArticles={savedArticles}
+                name={name}
+            />
             <section className="saved-news">
                 <ul className="saved-news__card-list">
                     {savedArticles.map((savedArticle) => {

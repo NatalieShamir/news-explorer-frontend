@@ -238,10 +238,14 @@ function App() {
             />}
           />
           <Route path="/saved-news" element={
-            <Protected isLoggedIn={isLoggedIn} >
+            <Protected
+              isLoggedIn={isLoggedIn}
+            >
               <SavedNews
                 savedArticles={savedArticles}
-                onArticleDelete={handleArticleDelete} />
+                onArticleDelete={handleArticleDelete}
+                name={name}
+              />
             </Protected>
           }
           />

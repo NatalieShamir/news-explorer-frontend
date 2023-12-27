@@ -1,10 +1,8 @@
 import React from "react";
 import "../SavedNewsHeader/SavedNewsHeader.css";
-import { UserContext } from "../../contexts/CurrentUserContext";
 
-function SavedNewsHeader({ savedArticles }) {
+function SavedNewsHeader({ savedArticles, name }) {
 
-    const currentUser = React.useContext(UserContext);
     const savedArticlesNumber = savedArticles.length;
     const keywordsArray = savedArticles.map((article) => article.keyword);
 
@@ -45,7 +43,7 @@ function SavedNewsHeader({ savedArticles }) {
         <>
             <section className="saved-news-header">
                 <h2 className="saved-news-header__heading">Saved articles</h2>
-                <h3 className="saved-news-header__subheading">{currentUser.name}, you have {savedArticlesNumber} saved articles</h3>
+                <h3 className="saved-news-header__subheading">{name}, you have {savedArticlesNumber} saved articles</h3>
                 <p className="saved-news-header__keywords">By keywords:&nbsp;
                     <span className="saved-news-header__keywords-bold" >{displayKeywords}</span>
                 </p>
