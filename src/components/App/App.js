@@ -111,7 +111,6 @@ function App() {
           const { data: { name } } = res
           setname(name)
           setIsLoggedIn(true);
-          navigate("/")
         })
         .catch((err) => console.log(err))
     }
@@ -194,6 +193,7 @@ function App() {
       })
         .then(() => getArticles())
         .catch((err) => console.log(err))
+
     }
   }
 
@@ -245,6 +245,7 @@ function App() {
                 savedArticles={savedArticles}
                 onArticleDelete={handleArticleDelete}
                 name={name}
+                keyword={keyword}
               />
             </Protected>
           }
