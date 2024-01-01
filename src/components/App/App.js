@@ -242,10 +242,12 @@ function App() {
               isLoggedIn={isLoggedIn}
             >
               <SavedNews
+                isLoggedIn={isLoggedIn}
                 savedArticles={savedArticles}
                 onArticleDelete={handleArticleDelete}
                 name={name}
                 keyword={keyword}
+                onLogout={logout}
               />
             </Protected>
           }
