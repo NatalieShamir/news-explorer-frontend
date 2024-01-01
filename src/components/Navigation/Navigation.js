@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "../Navigation/Navigation.css";
-import logout from "../../images/logout.svg";
+import logoutLight from "../../images/logout_light.svg";
 
 function Navigation({ isNavOpen, onSigninClick, isLoggedIn, name, onLogout }) {
 
@@ -22,7 +22,7 @@ function Navigation({ isNavOpen, onSigninClick, isLoggedIn, name, onLogout }) {
                             <div className="nav__button-signout-items">
                                 <p className="nav__user">{name}</p>
                                 <img className="nav__logout"
-                                    src={logout}
+                                    src={logoutLight}
                                     alt="logout icon"
                                 />
                             </div>
