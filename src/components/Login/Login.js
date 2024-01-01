@@ -59,7 +59,7 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
                         Sign in
                     </button>
                     <div className="popup__form-link-container">
-                        <p className="popup__form-link-text">or</p>
+                        <p className="popup__form-link-text">or&nbsp;</p>
                         <Link style={{ textDecoration: 'none' }} >
                             <p onClick={onSignupClick} className="popup__form-link" >Sign up</p>
                         </Link>

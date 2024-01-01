@@ -74,7 +74,7 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                         Sign up
                     </button>
                     <div className="popup__form-link-container">
-                        <p className="popup__form-link-text">or</p>
+                        <p className="popup__form-link-text">or&nbsp;</p>
                         <Link style={{ textDecoration: 'none' }} >
                             <p onClick={onSigninClick} className="popup__form-link">Sign in</p>
                         </Link>
