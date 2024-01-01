@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import headerLogo from "../../images/header-min.svg";
 import "../Header/Header.css";
 import Navigation from "../Navigation/Navigation";
-import hamburgerMenuOpen from "../../images/menu.svg";
+import hamburgerMenuOpen from "../../images/menu_light.svg";
 import hamburgerMenuClose from "../../images/close-min.svg";
+
 
 function Header({ onSigninClick, isLoggedIn, name, onLogout }) {
     const [isNavOpen, setIsNavOpen] = React.useState(false);
