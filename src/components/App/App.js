@@ -175,25 +175,26 @@ function App() {
   }
 
   function handleArticleSave(article) {
-    const isSaved = [savedArticles].find((savedArticle) => savedArticle.url === article.url);
-    if (isSaved) {
-      mainApi.deleteArticle(isSaved._id)
-        .then(() => getArticles())
-        .catch((err) => console.log(err))
-    }
-    else {
-      mainApi.createArticle({
-        keyword: article.keyword,
-        image: article.urlToImage,
-        date: article.publishedAt,
-        title: article.title,
-        text: article.description,
-        source: article.source.name,
-        link: article.url
-      })
-        .then(() => getArticles())
-        .catch((err) => console.log(err))
+    const isSaved = savedArticles.find(savedArticle => savedArticle.url === article.url);
 
+    if (isSaved) {
+      mainApi
+        .deleteArticle(isSaved._id)
+        .then(() => getArticles())
+        .catch((err) => console.log(err));
+    } else {
+      mainApi
+        .createArticle({
+          keyword: article.keyword,
+          image: article.urlToImage,
+          date: article.publishedAt,
+          title: article.title,
+          text: article.description,
+          source: article.source.name,
+          link: article.url,
+        })
+        .then(() => getArticles())
+        .catch((err) => console.log(err));
     }
   }
 
