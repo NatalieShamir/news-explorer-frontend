@@ -28,7 +28,7 @@ function LoggedinHeader({ name, onLogout }) {
                     {isLoggedInNavOpen ? <img src={hamburgerMenuClose} alt="x icon" /> : <img src={hamburgerMenuOpen} alt="toggle drop down menu" />}
                 </button>
             </div>
-            <nav className={`${`nav`} ${isLoggedInNavOpen ? "nav_open" : ""}`}>
+            <nav className={`${`logged-in-header-nav`} ${isLoggedInNavOpen ? "logged-in-header-nav_open" : ""}`}>
                 <ul className="logged-in-header-nav__items">
                     <li className="logged-in-header-nav__item">
                         <Link to="/" className="logged-in-header-nav__home">
