@@ -4,7 +4,6 @@ import Card from "../Card/Card";
 
 function ResultsCard({ searchedArticle, onArticleSave, cardImage, title, text, website, isLoggedIn }) {
     const [isToolTipVisible, setIsToolTipVisible] = React.useState(false);
-
     const [isSaved, setIsSaved] = React.useState(false);
 
 
@@ -25,14 +24,12 @@ function ResultsCard({ searchedArticle, onArticleSave, cardImage, title, text, w
                 {
                     isLoggedIn ? (
                         <button type="button" className={`${isSaved ? "card__button-save-article_marked" : "card__button-save-article"}`}
-                            onClick={handleSaveArticleClick}>
-                        </button>
+                            onClick={handleSaveArticleClick} />
                     ) : (
                         <button type="button" className="card__button-save-article"
                             onMouseEnter={() => setIsToolTipVisible(true)}
                             onMouseLeave={() => setIsToolTipVisible(false)}
-                        >
-                        </button>
+                        />
                     )
                 }
                 {
