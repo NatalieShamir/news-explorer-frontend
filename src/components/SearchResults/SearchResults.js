@@ -1,5 +1,5 @@
 import React from "react";
-import "../SearchResults/SearchResults.css"
+import "../SearchResults/SearchResults.css";
 import ResultsCard from "../ResultsCard/ResultsCard";
 
 function SearchResults({ searchedArticles, onArticleSave, isLoggedIn }) {
@@ -7,6 +7,10 @@ function SearchResults({ searchedArticles, onArticleSave, isLoggedIn }) {
 
   function handleShowMoreCards() {
     setShowCards(showCards + 3);
+  }
+
+  if (!searchedArticles || !Array.isArray(searchedArticles)) {
+    return null;
   }
 
   return (
@@ -25,14 +29,21 @@ function SearchResults({ searchedArticles, onArticleSave, isLoggedIn }) {
               website={searchedArticle.source.name}
               onArticleSave={onArticleSave}
               isLoggedIn={isLoggedIn}
-            />)
-        }
-        )}
+            />
+          );
+        })}
       </ul>
-      {showCards < searchedArticles.length && (<button type="button" className="search-results__button" onClick={handleShowMoreCards}>Show more</button>
+      {showCards < searchedArticles.length && (
+        <button
+          type="button"
+          className="search-results__button"
+          onClick={handleShowMoreCards}
+        >
+          Show more
+        </button>
       )}
-    </section >
-  )
+    </section>
+  );
 }
 
 export default SearchResults;
