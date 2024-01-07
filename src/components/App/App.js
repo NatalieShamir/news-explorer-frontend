@@ -26,7 +26,7 @@ function App() {
     React.useState(false);
   const [isRegistrationSuccessfulOpen, setIsRegistrationSuccessfulOpen] = React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [name, setname] = React.useState({} || "");
+  const [name, setname] = React.useState("");
   const [currentUser, setCurrentUser] = React.useState({});
   const [searchedArticles, setSearchedArticles] = React.useState((JSON.parse(localStorage.getItem("searchResults"))));
   const [isSeacrhProcessing, setIsSearchProcessing] = React.useState(false);
