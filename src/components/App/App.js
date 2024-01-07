@@ -73,20 +73,18 @@ function App() {
     if (!isLoggedIn) {
       return
     }
-    mainApi
-      .getUserInfo()
-      .then((res) => {
-        res.json().then(body => setCurrentUser(body));
+    mainApi.getUserInfo()
+      .then((body) => {
+        setCurrentUser(body);
       })
       .catch((err) => console.log(err))
   }, [isLoggedIn]);
 
   const getArticles = useCallback(() => {
     isLoggedIn &&
-      mainApi
-        .getSavedArticles()
-        .then((res) => {
-          res.json().then(body => setSavedArticles(body))
+      mainApi.getSavedArticles()
+        .then((body) => {
+          setSavedArticles(body);
         })
         .catch(console.log);
   }, [isLoggedIn]);
