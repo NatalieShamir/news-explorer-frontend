@@ -127,6 +127,7 @@ function App() {
 
   function handleSwitchToSignin() {
     setIsSignupPopupOpen(false);
+    setIsRegistrationSuccessfulOpen(false);
     setIsSigninPopupOpen(true);
   }
 
