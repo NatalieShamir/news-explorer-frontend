@@ -54,19 +54,18 @@ function App() {
     auth.signin(email, password)
       .then(res => {
         if (res.token) {
-          setIsLoggedIn(true)
-          setname(name)
-          localStorage.setItem("jwt", res.token)
-          navigate("/")
-        }
-        else {
-          console.log("failed to sign-in")
+          setIsLoggedIn(true);
+          setname(res.name);
+          localStorage.setItem("jwt", res.token);
+          navigate("/");
+        } else {
+          console.log("failed to sign-in");
         }
       })
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => closeAllPopups())
+      .finally(() => closeAllPopups());
   }
 
   useEffect(() => {
