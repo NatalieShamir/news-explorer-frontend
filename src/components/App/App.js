@@ -257,6 +257,7 @@ function App() {
         <RegistrationSuccessful
           isOpen={isRegistrationSuccessfulOpen}
           onClose={closeAllPopups}
+          onSigninClick={handleSwitchToSignin}
         />
         <Footer />
       </div>
