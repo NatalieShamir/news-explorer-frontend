@@ -73,7 +73,7 @@ function App() {
     if (!isLoggedIn) {
       return
     }
-    mainApi.getUserInfo()
+    mainApi.getCurrentUser()
       .then((body) => {
         setCurrentUser(body);
       })

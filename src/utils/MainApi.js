@@ -14,7 +14,7 @@ class MainApi {
         return Promise.reject(`Error ${res.status}`);
     }
 
-    getUserInfo() {
+    getCurrentUser() {
         return this._request(`${this._baseUrl}/users/me`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("jwt")}`,
