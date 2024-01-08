@@ -33,7 +33,7 @@ function SavedNewsHeader({ savedArticles, name }) {
         .sort((a, b) => b.count - a.count)
         .map((element) => element.keyword);
 
-    let displayKeywords = [];
+    let displayKeywords = "";
 
     let keywordsShown = "";
 
@@ -48,7 +48,11 @@ function SavedNewsHeader({ savedArticles, name }) {
     const remainingKeywordsCount = diff.length;
 
     if (keywordsDescending.length > 1) {
-        displayKeywords = keywordsShown + `\u0020 and ${remainingKeywordsCount} other`;
+        displayKeywords = keywordsShown;
+
+        if (remainingKeywordsCount > 0) {
+            displayKeywords += ` and ${remainingKeywordsCount} other`;
+        }
     } else {
         displayKeywords = keywordsShown;
     }
