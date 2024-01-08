@@ -35,7 +35,7 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                             className="popup__form-input"
                             placeholder="Enter email"
                             value={values.email}
-                            onChange={handleChange}
+                            onInput={handleChange}
                             autoComplete="off"
                             required
                         />
@@ -50,7 +50,7 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                             className="popup__form-input"
                             placeholder="Enter password"
                             value={values.password}
-                            onChange={handleChange}
+                            onInput={handleChange}
                             autoComplete="current-password"
                             required
                         />
@@ -65,7 +65,7 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
                             className="popup__form-input"
                             placeholder="Enter your username"
                             value={values.name}
-                            onChange={handleChange}
+                            onInput={handleChange}
                             required
                         />
                         {!isValid && <span id="name-input-error" className="popup__form-error">{errors.name}</span>}

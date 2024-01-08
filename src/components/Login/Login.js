@@ -35,7 +35,7 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
                             className="popup__form-input"
                             placeholder="Enter email"
                             value={values.email}
-                            onChange={handleChange}
+                            onInput={handleChange}
                             autoComplete="on"
                             required
                         />
@@ -49,7 +49,7 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
                             className="popup__form-input"
                             placeholder="Enter password"
                             value={values.password}
-                            onChange={handleChange}
+                            onInput={handleChange}
                             autoComplete="current-password"
                             required
                         />
