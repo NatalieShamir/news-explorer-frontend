@@ -35,13 +35,19 @@ function SavedNewsHeader({ savedArticles, name }) {
 
     let displayKeywords = [];
 
-    const keywordsShown = `${keywordsDescending[0]}, ${keywordsDescending[1]}`;
+    let keywordsShown = "";
+
+    if (keywordsDescending.length > 1) {
+        keywordsShown = `${keywordsDescending[0]}, ${keywordsDescending[1]}`;
+    } else if (keywordsDescending.length === 1) {
+        keywordsShown = keywordsDescending[0];
+    }
 
     const diff = keywordsDescending.filter((x) => !keywordsShown.includes(x));
 
     const remainingKeywordsCount = diff.length;
 
-    if (keywordsDescending.length > 2) {
+    if (keywordsDescending.length > 1) {
         displayKeywords = keywordsShown + `\u0020 and ${remainingKeywordsCount} other`;
     } else {
         displayKeywords = keywordsShown;
