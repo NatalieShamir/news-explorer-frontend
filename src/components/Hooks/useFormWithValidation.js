@@ -1,11 +1,10 @@
-// hook for form control and form validation
 import React, { useCallback } from "react";
 
 export function useFormWithValidation() {
     const [values, setValues] = React.useState({
-        email: '',
-        password: '',
-        name: ''
+        email: "",
+        password: "",
+        name: ""
     });
     const [errors, setErrors] = React.useState({});
     const [isValid, setIsValid] = React.useState(false);
@@ -22,7 +21,7 @@ export function useFormWithValidation() {
     };
 
     const resetForm = useCallback(
-        (newValues = {}, newErrors = {}, newIsValid = false) => {
+        (newValues = { email: "", password: "", name: "" }, newErrors = {}, newIsValid = false) => {
             setValues(newValues);
             setErrors(newErrors);
             setIsValid(newIsValid);
