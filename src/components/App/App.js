@@ -34,6 +34,7 @@ function App() {
   const [keyword, setKeyword] = React.useState(localStorage.getItem("keyword"));
   const navigate = useNavigate();
   const [savedArticles, setSavedArticles] = React.useState([]);
+  const [isLoadingUser, setIsLoadingUser] = useState(true);
 
 
   function register(email, password, name) {
