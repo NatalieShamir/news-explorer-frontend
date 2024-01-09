@@ -36,7 +36,7 @@ function Header({ onSigninClick, isLoggedIn, name, onLogout, isLoadingUser }) {
                     isNavOpen={isNavOpen}
                     onSigninClick={onSigninClick}
                     isLoggedIn={isLoggedIn}
-                    name={name}
+                    name={name || ""}
                     onLogout={onLogout}
                     isLoadingUser={isLoadingUser}
                 />
