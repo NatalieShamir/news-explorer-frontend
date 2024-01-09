@@ -7,7 +7,7 @@ import hamburgerMenuOpen from "../../images/menu_light.svg";
 import hamburgerMenuClose from "../../images/close-min.svg";
 
 
-function Header({ onSigninClick, isLoggedIn, name, onLogout, isLoadingUser }) {
+function Header({ onSigninClick, isLoggedIn, name, onLogout }) {
     const [isNavOpen, setIsNavOpen] = React.useState(false);
 
     function handleToggleMenu() {
@@ -29,18 +29,13 @@ function Header({ onSigninClick, isLoggedIn, name, onLogout, isLoadingUser }) {
                     {isNavOpen ? <img src={hamburgerMenuClose} alt="x icon" /> : <img src={hamburgerMenuOpen} alt="toggle drop down menu" />}
                 </button>
             </div>
-            {isLoadingUser ? (
-                <p>Loading user information...</p>
-            ) : (
-                <Navigation
-                    isNavOpen={isNavOpen}
-                    onSigninClick={onSigninClick}
-                    isLoggedIn={isLoggedIn}
-                    name={name || ""}
-                    onLogout={onLogout}
-                    isLoadingUser={isLoadingUser}
-                />
-            )}
+            <Navigation
+                isNavOpen={isNavOpen}
+                onSigninClick={onSigninClick}
+                isLoggedIn={isLoggedIn}
+                name={name || ""}
+                onLogout={onLogout}
+            />
         </header >
     )
 }

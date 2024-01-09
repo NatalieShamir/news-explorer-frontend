@@ -34,8 +34,6 @@ function App() {
   const [keyword, setKeyword] = React.useState(localStorage.getItem("keyword"));
   const navigate = useNavigate();
   const [savedArticles, setSavedArticles] = React.useState([]);
-  const [isLoadingUser, setIsLoadingUser] = React.useState(true);
-
 
   function register(email, password, name) {
     auth.signup(email, password, name)
@@ -101,21 +99,22 @@ function App() {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("jwt")
-
-    if (token) {
-      auth.checkToken(token)
-        .then(res => {
-          const { data: { name } } = res
-          setname(name)
+    const token = localStorage.getItem("jwt");
+    const fetchUserInfo = async () => {
+      try {
+        if (token) {
+          const res = await auth.checkToken(token);
+          const { data: { name } } = res;
+          setCurrentUser(res.data);
+          setname(name);
           setIsLoggedIn(true);
-        })
-        .catch((err) => console.log(err))
-        .finally(() => setIsLoadingUser(false));
-    } else {
-      setIsLoadingUser(false);
-    }
-  }, [])
+        }
+      } catch (error) {
+        console.error("Error checking token:", error);
+      }
+    };
+    fetchUserInfo();
+  }, []);
 
   function handleOpenSigninClick() {
     setIsSigninPopupOpen(true);
@@ -238,7 +237,6 @@ function App() {
               submitSearch={submitSearch}
               keyword={keyword}
               onArticleSave={handleArticleSave}
-              isLoadingUser={isLoadingUser}
             />}
           />
           <Route path="/saved-news" element={
