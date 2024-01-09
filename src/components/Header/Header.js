@@ -29,14 +29,18 @@ function Header({ onSigninClick, isLoggedIn, name, onLogout, isLoadingUser }) {
                     {isNavOpen ? <img src={hamburgerMenuClose} alt="x icon" /> : <img src={hamburgerMenuOpen} alt="toggle drop down menu" />}
                 </button>
             </div>
-            <Navigation
-                isNavOpen={isNavOpen}
-                onSigninClick={onSigninClick}
-                isLoggedIn={isLoggedIn}
-                name={name}
-                onLogout={onLogout}
-                isLoadingUser={isLoadingUser}
-            />
+            {isLoadingUser ? (
+                <p>Loading user information...</p>
+            ) : (
+                <Navigation
+                    isNavOpen={isNavOpen}
+                    onSigninClick={onSigninClick}
+                    isLoggedIn={isLoggedIn}
+                    name={name}
+                    onLogout={onLogout}
+                    isLoadingUser={isLoadingUser}
+                />
+            )}
         </header >
     )
 }
