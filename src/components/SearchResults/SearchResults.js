@@ -2,7 +2,7 @@ import React from "react";
 import "../SearchResults/SearchResults.css";
 import ResultsCard from "../ResultsCard/ResultsCard";
 
-function SearchResults({ searchedArticles, onArticleSave, isLoggedIn }) {
+function SearchResults({ searchedArticles, onArticleSave, isLoggedIn, onAttemptSaveArticleClick }) {
   const [showCards, setShowCards] = React.useState(0);
 
   function handleShowMoreCards() {
@@ -29,6 +29,7 @@ function SearchResults({ searchedArticles, onArticleSave, isLoggedIn }) {
               website={searchedArticle.source.name}
               onArticleSave={onArticleSave}
               isLoggedIn={isLoggedIn}
+              onAttemptSaveArticleClick={onAttemptSaveArticleClick}
             />
           );
         })}

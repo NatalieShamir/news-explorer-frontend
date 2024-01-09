@@ -120,6 +120,10 @@ function App() {
     setIsSigninPopupOpen(true);
   }
 
+  function handleAttemptArticleSaveClick() {
+    setIsSignupPopupOpen(true);
+  }
+
   function handleSwitchToSignup() {
     setIsSigninPopupOpen(false);
     setIsSignupPopupOpen(true);
@@ -237,6 +241,7 @@ function App() {
               submitSearch={submitSearch}
               keyword={keyword}
               onArticleSave={handleArticleSave}
+              onAttemptSaveArticleClick={handleAttemptArticleSaveClick}
             />}
           />
           <Route path="/saved-news" element={

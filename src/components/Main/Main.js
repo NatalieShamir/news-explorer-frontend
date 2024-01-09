@@ -7,7 +7,7 @@ import SearchResults from "../SearchResults/SearchResults";
 import Preloader from "../Preloader/Preloader";
 import NotFound from "../NotFound/NotFound";
 
-function Main({ onSigninClick, isLoggedIn, name, onLogout, onSubmit, isSeacrhProcessing, submitSearch, searchedArticles, keyword, onArticleSave }) {
+function Main({ onSigninClick, isLoggedIn, name, onLogout, onSubmit, isSeacrhProcessing, submitSearch, searchedArticles, keyword, onArticleSave, onAttemptSaveArticleClick }) {
     return (
         <>
             <Parent>
@@ -32,6 +32,7 @@ function Main({ onSigninClick, isLoggedIn, name, onLogout, onSubmit, isSeacrhPro
                     keyword={keyword}
                     onArticleSave={onArticleSave}
                     isLoggedIn={isLoggedIn}
+                    onAttemptSaveArticleClick={onAttemptSaveArticleClick}
                 />
                 )
             }

@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../Card/Card";
 
 
-function ResultsCard({ searchedArticle, onArticleSave, cardImage, title, text, website, isLoggedIn }) {
+function ResultsCard({ searchedArticle, onArticleSave, cardImage, title, text, website, isLoggedIn, onAttemptSaveArticleClick }) {
     const [isToolTipVisible, setIsToolTipVisible] = React.useState(false);
     const [isSaved, setIsSaved] = React.useState(false);
 
@@ -29,6 +29,7 @@ function ResultsCard({ searchedArticle, onArticleSave, cardImage, title, text, w
                         <button type="button" className="card__button-save-article"
                             onMouseEnter={() => setIsToolTipVisible(true)}
                             onMouseLeave={() => setIsToolTipVisible(false)}
+                            onClick={onAttemptSaveArticleClick}
                         />
                     )
                 }
