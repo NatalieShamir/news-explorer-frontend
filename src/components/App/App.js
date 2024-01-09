@@ -185,7 +185,10 @@ function App() {
     if (isSaved) {
       mainApi
         .deleteArticle(isSaved._id)
-        .then(() => getArticles())
+        .then((res) => {
+          const newArticles = savedArticles.filter((item) => item._id !== article._id);
+          setSavedArticles(newArticles);
+        })
         .catch((err) => console.log(err));
     } else {
       mainApi
