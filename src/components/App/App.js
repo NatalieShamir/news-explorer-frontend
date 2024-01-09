@@ -34,7 +34,7 @@ function App() {
   const [keyword, setKeyword] = React.useState(localStorage.getItem("keyword"));
   const navigate = useNavigate();
   const [savedArticles, setSavedArticles] = React.useState([]);
-  const [isLoadingUser, setIsLoadingUser] = useState(true);
+  const [isLoadingUser, setIsLoadingUser] = React.useState(true);
 
 
   function register(email, password, name) {
@@ -111,8 +111,11 @@ function App() {
           setIsLoggedIn(true);
         })
         .catch((err) => console.log(err))
+        .finally(() => setIsLoadingUser(false));
+    } else {
+      setIsLoadingUser(false);
     }
-  }, [navigate])
+  }, [])
 
   function handleOpenSigninClick() {
     setIsSigninPopupOpen(true);
@@ -235,6 +238,7 @@ function App() {
               submitSearch={submitSearch}
               keyword={keyword}
               onArticleSave={handleArticleSave}
+              isLoadingUser={isLoadingUser}
             />}
           />
           <Route path="/saved-news" element={
