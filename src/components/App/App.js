@@ -75,7 +75,7 @@ function App() {
       .then((body) => {
         setCurrentUser(body);
       })
-      .catch((err) => console.log(err))
+      .catch(console.error)
   }, [isLoggedIn]);
 
   const getArticles = useCallback(() => {
@@ -173,7 +173,7 @@ function App() {
         setKeyword(searchWord);
         localStorage.setItem("keyword", searchWord);
       })
-      .catch((err) => console.log(err))
+      .catch(console.error)
       .finally(() => {
         setIsSearchProcessing(false);
       })
@@ -189,7 +189,7 @@ function App() {
           const newArticles = savedArticles.filter((item) => item._id !== article._id);
           setSavedArticles(newArticles);
         })
-        .catch((err) => console.log(err));
+        .catch(console.error);
     } else {
       mainApi
         .createArticle({
@@ -212,7 +212,7 @@ function App() {
         const newArticles = savedArticles.filter((item) => item._id !== article._id);
         setSavedArticles(newArticles);
       })
-      .catch((err) => console.log(err))
+      .catch(console.error);
   }
 
   return (
