@@ -12,7 +12,7 @@ function Card({ children, cardImage, title, text, website }) {
     return (
         <div className="card">
             {children}
-            <img src={cardImage} className="card__image " alt="news article card" />
+            <img src={cardImage} className="card__image " alt={title} />
             <div className="card__container">
                 <p className="card__date">{formattedDate}</p>
                 <h2 className="card__title">{title}</h2>
