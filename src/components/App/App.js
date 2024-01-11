@@ -198,7 +198,10 @@ function App() {
           source: article.source.name,
           link: article.url,
         })
-        .then(() => getArticles())
+        .then((savedArticle) => {
+          setSavedArticles([...savedArticles, savedArticle]);
+        })
+        .catch(console.error);
     }
   }
 
