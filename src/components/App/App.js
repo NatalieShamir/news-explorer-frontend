@@ -61,10 +61,7 @@ function App() {
           console.log("failed to sign-in");
         }
       })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => closeAllPopups());
+      .catch(console.error);
   }
 
   useEffect(() => {
