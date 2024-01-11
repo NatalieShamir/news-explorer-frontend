@@ -114,7 +114,7 @@ function App() {
       }
     };
     fetchUserInfo();
-  }, []);
+  }, [isLoggedIn]);
 
   function handleOpenSigninClick() {
     setIsSigninPopupOpen(true);
@@ -202,7 +202,6 @@ function App() {
           link: article.url,
         })
         .then(() => getArticles())
-        .catch((err) => console.log(err));
     }
   }
 
