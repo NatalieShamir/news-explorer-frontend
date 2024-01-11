@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import "../PopupWithForm/PopupWithForm.css";
-import { useFormWithValidation } from '../Hooks/useFormWithValidation';
+import { useFormWithValidation } from '../../Hooks/useFormWithValidation';
 
 function Register({ onRegister, isOpen, onClose, onSigninClick }) {
     const { values, handleChange, resetForm, errors, isValid } = useFormWithValidation();
