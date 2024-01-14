@@ -39,7 +39,7 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
                             autoComplete="on"
                             required
                         />
-                        {!isValid && <span id="email-input-error" className="popup__form-error">{errors.email}</span>}
+                        {!isValid && <span id="email-input-error" className="popup__form-error_visible">{errors.email}</span>}
                     </fieldset >
                     <fieldset className="popup__form-fieldset">
                         <label htmlFor="password" className="popup__form-label">Password</label>
@@ -53,7 +53,7 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
                             autoComplete="current-password"
                             required
                         />
-                        {!isValid && <span id="password-input-error" className="popup__form-error">{errors.password}</span>}
+                        {!isValid && <span id="password-input-error" className="popup__form-error_visible">{errors.password}</span>}
                     </fieldset>
                     <button type="submit" className={isValid ? "popup__form-button" : "popup__form-button popup__form-button_disabled"} >
                         Sign in
