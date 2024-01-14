@@ -177,13 +177,13 @@ function App() {
   }
 
   function handleArticleSave(article) {
-    const isSaved = savedArticles.find(savedArticle => savedArticle.url === article.url);
+    const isSaved = savedArticles.find(savedArticle => savedArticle.link === article.url);
 
     if (isSaved) {
       mainApi
         .deleteArticle(isSaved._id)
         .then((res) => {
-          const newArticles = savedArticles.filter((item) => item._id !== article._id);
+          const newArticles = savedArticles.filter((item) => item._id !== isSaved._id);
           setSavedArticles(newArticles);
         })
         .catch(console.error);
@@ -199,7 +199,7 @@ function App() {
           link: article.url,
         })
         .then((savedArticle) => {
-          setSavedArticles([...savedArticles, savedArticle]);
+          setSavedArticles([...savedArticles, savedArticle.data]);
         })
         .catch(console.error);
     }
