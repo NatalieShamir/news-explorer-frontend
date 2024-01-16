@@ -1,13 +1,9 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import headerLogo from "../../images/header-min.svg";
 import "../Header/Header.css";
 import Navigation from "../Navigation/Navigation";
-import hamburgerMenuOpen from "../../images/menu_light.svg";
-import hamburgerMenuClose from "../../images/close-min.svg";
 
-
-function Header({ onSigninClick, isLoggedIn, name, onLogout }) {
+function Header({ onSigninClick, isLoggedIn, name, onLogout, headerLogoSrc, hamburgerMenuOpenSrc, hamburgerMenuCloseSrc, isSavedNews }) {
     const [isNavOpen, setIsNavOpen] = React.useState(false);
 
     function handleToggleMenu() {
@@ -15,18 +11,17 @@ function Header({ onSigninClick, isLoggedIn, name, onLogout }) {
     }
 
     return (
-
         <header className={isNavOpen ? "header_hamburger_menu_open" : "header"}>
             <div className="header__container">
                 <Link to="/" className="header__logo">
                     <img
                         className="header__logo-image"
-                        src={headerLogo}
+                        src={headerLogoSrc}
                         alt="Project title- NewsExplorer"
                     />
                 </Link>
                 <button className="header__hamburger-menu-toggle" onClick={handleToggleMenu}>
-                    {isNavOpen ? <img src={hamburgerMenuClose} alt="x icon" /> : <img src={hamburgerMenuOpen} alt="toggle drop down menu" />}
+                    {isNavOpen ? <img src={hamburgerMenuCloseSrc} alt="x icon" /> : <img src={hamburgerMenuOpenSrc} alt="toggle drop down menu" />}
                 </button>
             </div>
             <Navigation
@@ -35,6 +30,7 @@ function Header({ onSigninClick, isLoggedIn, name, onLogout }) {
                 isLoggedIn={isLoggedIn}
                 name={name || ""}
                 onLogout={onLogout}
+                isSavedNews={isSavedNews}
             />
         </header >
     )

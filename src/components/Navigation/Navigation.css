@@ -47,6 +47,10 @@
   margin-right: 64px;
 }
 
+.nav__articles_dark {
+  color: #1a1b22;
+}
+
 .nav__button-signout {
   width: 112px;
   height: 48px;
@@ -76,6 +80,10 @@
   color: #fff;
   margin: 0;
   max-width: 56px;
+}
+
+.nav__user_dark {
+  color: #1a1b22;
 }
 
 .nav__logout {

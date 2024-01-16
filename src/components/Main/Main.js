@@ -6,8 +6,11 @@ import About from "../About/About";
 import SearchResults from "../SearchResults/SearchResults";
 import Preloader from "../Preloader/Preloader";
 import NotFound from "../NotFound/NotFound";
+import headerLogo from "../../images/header-min.svg";
+import hamburgerMenuOpen from "../../images/menu_light.svg";
+import hamburgerMenuClose from "../../images/close-min.svg";
 
-function Main({ onSigninClick, isLoggedIn, name, onLogout, onSubmit, isSeacrhProcessing, submitSearch, searchedArticles, keyword, onArticleSave, onAttemptSaveArticleClick }) {
+function Main({ onSigninClick, isLoggedIn, name, onLogout, onSubmit, isSeacrhProcessing, submitSearch, searchedArticles, keyword, onArticleSave, onAttemptSaveArticleClick, savedArticles }) {
     return (
         <>
             <Parent>
@@ -16,6 +19,9 @@ function Main({ onSigninClick, isLoggedIn, name, onLogout, onSubmit, isSeacrhPro
                     isLoggedIn={isLoggedIn}
                     name={name}
                     onLogout={onLogout}
+                    headerLogoSrc={headerLogo}
+                    hamburgerMenuOpenSrc={hamburgerMenuOpen}
+                    hamburgerMenuCloseSrc={hamburgerMenuClose}
                 />
                 <SearchForm
                     onSubmit={onSubmit}
@@ -33,6 +39,7 @@ function Main({ onSigninClick, isLoggedIn, name, onLogout, onSubmit, isSeacrhPro
                     onArticleSave={onArticleSave}
                     isLoggedIn={isLoggedIn}
                     onAttemptSaveArticleClick={onAttemptSaveArticleClick}
+                    savedArticles={savedArticles}
                 />
                 )
             }
