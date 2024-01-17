@@ -8,8 +8,11 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
     const handleLogin = (e) => {
         e.preventDefault();
         onLogin(values.email, values.password);
-        resetForm();
     }
+
+    React.useEffect(() => {
+        resetForm();
+    }, [isOpen]);//eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <PopupWithForm
