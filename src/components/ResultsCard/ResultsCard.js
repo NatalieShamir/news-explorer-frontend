@@ -2,13 +2,10 @@ import React from "react";
 import Card from "../Card/Card";
 
 
-function ResultsCard({ searchedArticle, onArticleSave, cardImage, title, text, website, isLoggedIn, onAttemptSaveArticleClick }) {
+function ResultsCard({ searchedArticle, onArticleSave, cardImage, title, text, website, isLoggedIn, onAttemptSaveArticleClick, isSaved }) {
     const [isToolTipVisible, setIsToolTipVisible] = React.useState(false);
-    const [isSaved, setIsSaved] = React.useState(false);
-
 
     function handleSaveArticleClick() {
-        setIsSaved(current => !current);
         onArticleSave(searchedArticle)
     }
 

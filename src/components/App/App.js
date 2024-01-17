@@ -33,7 +33,10 @@ function App() {
   const [submitSearch, setSubmitSearch] = React.useState(false);
   const [keyword, setKeyword] = React.useState(localStorage.getItem("keyword"));
   const navigate = useNavigate();
-  const [savedArticles, setSavedArticles] = React.useState([]);
+  const [savedArticles, setSavedArticles] = React.useState(() => {
+    const savedArticlesFromLocalStorage = JSON.parse(localStorage.getItem("savedArticles")) || [];
+    return savedArticlesFromLocalStorage;
+  });
 
   function register(email, password, name) {
     auth.signup(email, password, name)
@@ -205,6 +208,10 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
+  }, [savedArticles]);
+
   function handleArticleDelete(article) {
     mainApi
       .deleteArticle(article._id)
@@ -244,6 +251,7 @@ function App() {
               keyword={keyword}
               onArticleSave={handleArticleSave}
               onAttemptSaveArticleClick={handleAttemptArticleSaveClick}
+              savedArticles={savedArticles}
             />}
           />
           <Route path="/saved-news" element={

@@ -2,7 +2,7 @@ import React from "react";
 import "../SearchResults/SearchResults.css";
 import ResultsCard from "../ResultsCard/ResultsCard";
 
-function SearchResults({ searchedArticles, onArticleSave, isLoggedIn, onAttemptSaveArticleClick }) {
+function SearchResults({ searchedArticles, onArticleSave, isLoggedIn, onAttemptSaveArticleClick, savedArticles }) {
   const [showCards, setShowCards] = React.useState(0);
 
   function handleShowMoreCards() {
@@ -18,6 +18,7 @@ function SearchResults({ searchedArticles, onArticleSave, isLoggedIn, onAttemptS
       <h2 className="search-results__heading">Search results</h2>
       <ul className="search-results__card-list">
         {searchedArticles.slice(0, 3 + showCards).map((searchedArticle) => {
+          const isSaved = savedArticles.some((item) => item.link === searchedArticle.url);
           return (
             <ResultsCard
               searchedArticle={searchedArticle}
@@ -30,6 +31,7 @@ function SearchResults({ searchedArticles, onArticleSave, isLoggedIn, onAttemptS
               onArticleSave={onArticleSave}
               isLoggedIn={isLoggedIn}
               onAttemptSaveArticleClick={onAttemptSaveArticleClick}
+              isSaved={isSaved}
             />
           );
         })}
