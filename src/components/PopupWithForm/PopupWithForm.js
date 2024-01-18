@@ -9,25 +9,21 @@ function PopupWithForm({ isOpen, children, onClose, onSubmit, formTitle, buttonT
     return (
         <div className={`popup ${isOpen ? "popup_open" : ""}`}>
             <div className="popup__container">
-                <button
-                    onClick={onClose}
-                    type="button"
-                    aria-label="close"
-                    className="popup__close-button"
-                />
-                <form className="popup__form" onSubmit={onSubmit}>
-                    <h3 className="popup__form-title">{formTitle}</h3>
-                    {children}
-                    <button type="submit" className={!isValid ? "popup__form-button" : "popup__form-button popup__form-button_disabled"}>
-                        {buttonText}
-                    </button>
-                    <div className="popup__form-link-container">
-                        <p className="popup__form-link-text">or&nbsp;</p>
-                        <Link style={{ textDecoration: 'none' }}>
-                            <p onClick={linkClickHandler} className="popup__form-link">{linkText}</p>
-                        </Link>
-                    </div>
-                </form>
+                <div className="popup__content-container">
+                    <form className="popup__form" onSubmit={onSubmit}>
+                        <h3 className="popup__form-title">{formTitle}</h3>
+                        {children}
+                        <button type="submit" className={!isValid ? "popup__form-button" : "popup__form-button popup__form-button_disabled"}>
+                            {buttonText}
+                        </button>
+                        <div className="popup__form-link-container">
+                            <p className="popup__form-link-text">or&nbsp;</p>
+                            <Link style={{ textDecoration: 'none' }}>
+                                <p onClick={linkClickHandler} className="popup__form-link">{linkText}</p>
+                            </Link>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     );
