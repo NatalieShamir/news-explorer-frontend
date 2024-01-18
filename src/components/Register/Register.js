@@ -8,8 +8,11 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
     const handleRegister = (e) => {
         e.preventDefault();
         onRegister(values.email, values.password, values.name);
-        resetForm();
     }
+
+    React.useEffect(() => {
+        resetForm();
+    }, [isOpen]);//eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <PopupWithForm
