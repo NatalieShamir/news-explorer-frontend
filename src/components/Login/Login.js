@@ -23,6 +23,7 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
             buttonText="Sign in"
             linkClickHandler={onSignupClick}
             linkText="Sign up"
+            isValid={isValid}
         >
             <div className="popup__form-content">
                 <button

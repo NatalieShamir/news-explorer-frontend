@@ -1,10 +1,8 @@
 import React from "react";
 import "../PopupWithForm/PopupWithForm.css";
-import { useFormWithValidation } from '../../Hooks/useFormWithValidation';
 import { Link } from 'react-router-dom';
 
-function PopupWithForm({ isOpen, children, onClose, onSubmit, formTitle, buttonText, linkClickHandler, linkText }) {
-    const { isValid } = useFormWithValidation();
+function PopupWithForm({ isOpen, children, onClose, onSubmit, formTitle, buttonText, linkClickHandler, linkText, isValid }) {
 
     return (
         <div className={`popup ${isOpen ? "popup_open" : ""}`}>
@@ -13,7 +11,7 @@ function PopupWithForm({ isOpen, children, onClose, onSubmit, formTitle, buttonT
                     <form className="popup__form" onSubmit={onSubmit}>
                         <h3 className="popup__form-title">{formTitle}</h3>
                         {children}
-                        <button type="submit" className={!isValid ? "popup__form-button" : "popup__form-button popup__form-button_disabled"}>
+                        <button type="submit" className={isValid ? "popup__form-button" : "popup__form-button popup__form-button_disabled"}>
                             {buttonText}
                         </button>
                         <div className="popup__form-link-container">

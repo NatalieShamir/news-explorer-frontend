@@ -23,6 +23,7 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
             buttonText="Sign up"
             linkClickHandler={onSigninClick}
             linkText="Sign in"
+            isValid={isValid}
         >
             <div className="popup__form-content">
                 <button
