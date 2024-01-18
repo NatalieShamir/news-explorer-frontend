@@ -26,12 +26,6 @@ function Login({ onLogin, isOpen, onClose, onSignupClick }) {
             isValid={isValid}
         >
             <div className="popup__form-content">
-                <button
-                    onClick={onClose}
-                    type="button"
-                    aria-label="close"
-                    className="popup__close-button popup__close-button-signin"
-                />
                 <fieldset className="popup__form-fieldset">
                     <label htmlFor="email" className="popup__form-label">Email</label>
                     <input

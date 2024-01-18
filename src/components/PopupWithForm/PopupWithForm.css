@@ -22,6 +22,10 @@
   transition-delay: 0s;
 }
 
+.popup__content-container {
+  position: relative;
+}
+
 .popup__close-button {
   background-image: url("../../images/close-icon.svg");
   background-repeat: no-repeat;
@@ -31,20 +35,8 @@
   border: none;
   cursor: pointer;
   position: absolute;
-}
-
-.popup__close-button-signin {
-  bottom: 220px;
-  left: 430px;
-}
-
-.popup__close-button-signup {
-  bottom: 290px;
-  left: 430px;
-}
-
-.popup__form-content {
-  position: relative;
+  top: -50px;
+  right: -50px;
 }
 
 .popup__form {
@@ -176,16 +168,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-  }
-
-  .popup__close-button-signin {
-    left: 90%;
-    bottom: 260px;
-  }
-
-  .popup__close-button-signup {
-    left: 90%;
-    bottom: 350px;
   }
 
   .popup__form-title {

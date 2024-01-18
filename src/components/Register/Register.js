@@ -26,12 +26,6 @@ function Register({ onRegister, isOpen, onClose, onSigninClick }) {
             isValid={isValid}
         >
             <div className="popup__form-content">
-                <button
-                    onClick={onClose}
-                    type="button"
-                    aria-label="close"
-                    className="popup__close-button popup__close-button-signup"
-                />
                 <fieldset className="popup__form-fieldset">
                     <label htmlFor="email" className="popup__form-label">Email</label>
                     <input
