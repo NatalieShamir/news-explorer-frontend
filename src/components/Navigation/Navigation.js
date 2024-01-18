@@ -22,7 +22,7 @@ function Navigation({ isNavOpen, onSigninClick, isLoggedIn, name, onLogout, isSa
                         <button className="nav__button-signout" onClick={onLogout}>
                             <div className="nav__button-signout-items">
                                 <p className={`nav__user ${isSavedNews ? "nav__user_dark" : ""}`} >{name}</p>
-                                {isSavedNews ? <img src={logoutDark} alt="" /> : <img src={logoutLight} alt="" />}
+                                {isSavedNews ? <img src={logoutDark} alt="a black log out icon" /> : <img src={logoutLight} alt="a white log out icon" />}
                             </div>
                         </button>
                     </li>
