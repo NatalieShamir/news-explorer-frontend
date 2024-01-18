@@ -160,6 +160,10 @@
     overflow: hidden;
   }
 
+  .popup__close-button {
+    right: 0px;
+  }
+
   .popup__form {
     width: 100%;
     height: 520px;
