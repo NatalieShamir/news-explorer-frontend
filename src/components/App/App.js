@@ -60,6 +60,7 @@ function App() {
           setname(res.name);
           localStorage.setItem("jwt", res.token);
           navigate("/");
+          closeAllPopups();
         } else {
           console.log("failed to sign-in");
         }
