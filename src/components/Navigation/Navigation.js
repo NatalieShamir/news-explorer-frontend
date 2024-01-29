@@ -1,30 +1,28 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "../Navigation/Navigation.css";
-import logout from "../../images/logout.svg";
+import logoutLight from "../../images/logout_light.svg";
+import logoutDark from "../../images/logout_dark.svg";
 
-function Navigation({ isNavOpen, onSigninClick, isLoggedIn }) {
+function Navigation({ isNavOpen, onSigninClick, isLoggedIn, name, onLogout, isSavedNews }) {
 
     return (
         <nav className={`${`nav`} ${isNavOpen ? "nav_open" : ""}`}>
             {isLoggedIn ? (
                 <ul className="nav__items">
                     <li className="nav__item">
-                        <Link to={"/"} className="nav__home_dark">
+                        <Link to="/" className={`nav__home ${isSavedNews ? "nav__home_dark" : ""}`}>
                             Home
                         </Link>
                     </li >
                     <li className="nav__item">
-                        <Link to={"/saved-news"} className="nav__articles">Saved articles</Link>
+                        <Link to="/saved-news" className={`nav__articles ${isSavedNews ? "nav__articles_dark" : ""}`} >Saved articles</Link>
                     </li>
                     <li className="nav__item">
-                        <button className="nav__button-signout">
+                        <button className="nav__button-signout" onClick={onLogout}>
                             <div className="nav__button-signout-items">
-                                <div className="nav__user">Elise</div>
-                                <img className="nav__logout"
-                                    src={logout}
-                                    alt="logout icon"
-                                />
+                                <p className={`nav__user ${isSavedNews ? "nav__user_dark" : ""}`} >{name}</p>
+                                {isSavedNews ? <img src={logoutDark} alt="a black log out icon" /> : <img src={logoutLight} alt="a white log out icon" />}
                             </div>
                         </button>
                     </li>
@@ -32,7 +30,7 @@ function Navigation({ isNavOpen, onSigninClick, isLoggedIn }) {
             ) : (
                 <ul className="nav__items">
                     <li className="nav__item">
-                        <Link to={"/"} className="nav__home">
+                        <Link to="/" className="nav__home">
                             Home
                         </Link>
                     </li >
